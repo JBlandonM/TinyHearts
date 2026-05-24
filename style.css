@@ -5,30 +5,39 @@
    ========================================================================== */
 :root {
   /* Color Palette (Playful Organic & Refined Warmth) */
-  --bg-primary: #fdfbf7;       /* Creamy warm white */
-  --bg-secondary: #f6efe2;     /* Warm linen */
-  --text-dark: #232c28;        /* Deep pine/charcoal for optimal contrast */
-  --text-muted: #53645c;       /* Muted slate green */
-  
+  --bg-primary: #fdfbf7;
+  /* Creamy warm white */
+  --bg-secondary: #f6efe2;
+  /* Warm linen */
+  --text-dark: #232c28;
+  /* Deep pine/charcoal for optimal contrast */
+  --text-muted: #53645c;
+  /* Muted slate green */
+
   /* Brand Accent Colors */
-  --color-coral: #e56a54;      /* Playful terracota/coral */
+  --color-coral: #e56a54;
+  /* Playful terracota/coral */
   --color-coral-hover: #cd543f;
   --color-coral-light: rgba(229, 106, 84, 0.1);
-  --color-sage: #5f856c;       /* Soft organic sage green */
-  --color-sage-light: #eef4f0; /* Sage light tint */
-  --color-amber: #f5af42;      /* Sunshine amber */
+  --color-sage: #5f856c;
+  /* Soft organic sage green */
+  --color-sage-light: #eef4f0;
+  /* Sage light tint */
+  --color-amber: #f5af42;
+  /* Sunshine amber */
   --color-amber-light: #fef6e7;
-  --color-sky: #7bb5cc;        /* Playful sky blue */
+  --color-sky: #7bb5cc;
+  /* Playful sky blue */
   --color-sky-light: #edf6f9;
-  
+
   /* Decorative Blobs Gradients */
-  --gradient-coral-amber: linear-gradient(135deg, rgba(229,106,84,0.1) 0%, rgba(245,175,66,0.1) 100%);
-  --gradient-sage-sky: linear-gradient(135deg, rgba(95,133,108,0.1) 0%, rgba(123,181,204,0.1) 100%);
+  --gradient-coral-amber: linear-gradient(135deg, rgba(229, 106, 84, 0.1) 0%, rgba(245, 175, 66, 0.1) 100%);
+  --gradient-sage-sky: linear-gradient(135deg, rgba(95, 133, 108, 0.1) 0%, rgba(123, 181, 204, 0.1) 100%);
 
   /* Typography Pairing */
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  
+
   /* Fluid Spacing (using clamp for perfect responsiveness) */
   --space-xs: clamp(0.5rem, 1vw, 0.75rem);
   --space-sm: clamp(0.875rem, 1.5vw, 1.25rem);
@@ -57,9 +66,73 @@
 }
 
 /* ==========================================================================
+   ALTERNATE THEMES (for client presentation)
+   Apply by adding data-theme="brisa|dulce|paraiso" to <html>
+   ========================================================================== */
+
+/* --- Theme 2: Brisa Costera (Coastal Breeze) --- */
+[data-theme="brisa"] {
+  --bg-primary: #f4f8fb;
+  --bg-secondary: #e8f1f8;
+  --text-dark: #1a2a3a;
+  --text-muted: #5a7a8a;
+  --color-coral: #3a9bc7;
+  --color-coral-hover: #2a7fa8;
+  --color-coral-light: rgba(58, 155, 199, 0.1);
+  --color-sage: #6db89a;
+  --color-sage-light: #eaf5f0;
+  --color-amber: #f0c87a;
+  --color-amber-light: #fef7e8;
+  --color-sky: #b8cbd8;
+  --color-sky-light: #f0f4f8;
+  --gradient-coral-amber: linear-gradient(135deg, rgba(58, 155, 199, 0.1) 0%, rgba(240, 200, 122, 0.1) 100%);
+  --gradient-sage-sky: linear-gradient(135deg, rgba(109, 184, 154, 0.1) 0%, rgba(184, 203, 216, 0.1) 100%);
+}
+
+/* --- Theme 3: Dulce Infantil (Sweet Dreams) --- */
+[data-theme="dulce"] {
+  --bg-primary: #fdfaff;
+  --bg-secondary: #f7f2fa;
+  --text-dark: #2d2533;
+  --text-muted: #7a6b82;
+  --color-coral: #e887a8;
+  --color-coral-hover: #d46a8e;
+  --color-coral-light: rgba(232, 135, 168, 0.1);
+  --color-sage: #a8d8c8;
+  --color-sage-light: #eef8f4;
+  --color-amber: #f0d5e8;
+  --color-amber-light: #fdf5fa;
+  --color-sky: #b8a8d8;
+  --color-sky-light: #f3eef9;
+  --gradient-coral-amber: linear-gradient(135deg, rgba(232, 135, 168, 0.1) 0%, rgba(240, 213, 232, 0.1) 100%);
+  --gradient-sage-sky: linear-gradient(135deg, rgba(168, 216, 200, 0.1) 0%, rgba(184, 168, 216, 0.1) 100%);
+}
+
+/* --- Theme 4: Paraíso Natural (Natural Paradise) --- */
+[data-theme="paraiso"] {
+  --bg-primary: #faf8f5;
+  --bg-secondary: #efeae2;
+  --text-dark: #1e2820;
+  --text-muted: #5a6650;
+  --color-coral: #4a7c59;
+  --color-coral-hover: #3a6648;
+  --color-coral-light: rgba(74, 124, 89, 0.1);
+  --color-sage: #c48a5a;
+  --color-sage-light: #f6ede4;
+  --color-amber: #d4b06a;
+  --color-amber-light: #f8f2e6;
+  --color-sky: #8a9a7a;
+  --color-sky-light: #edf0e8;
+  --gradient-coral-amber: linear-gradient(135deg, rgba(74, 124, 89, 0.1) 0%, rgba(212, 176, 106, 0.1) 100%);
+  --gradient-sage-sky: linear-gradient(135deg, rgba(196, 138, 90, 0.1) 0%, rgba(138, 154, 122, 0.1) 100%);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -67,6 +140,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 50px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -87,7 +161,10 @@ img {
   display: block;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font: inherit;
   color: inherit;
   border: none;
@@ -113,14 +190,17 @@ a {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--bg-secondary);
   border-radius: 10px;
   border: 2px solid var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-sage);
 }
@@ -128,7 +208,10 @@ a {
 /* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.15;
@@ -234,9 +317,11 @@ p {
   0% {
     transform: translate(0, 0) rotate(0deg) scale(1);
   }
+
   50% {
     transform: translate(30px, 50px) rotate(90deg) scale(1.1);
   }
+
   100% {
     transform: translate(-20px, -30px) rotate(180deg) scale(0.95);
   }
@@ -247,8 +332,13 @@ p {
 }
 
 @keyframes float-micro {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-12px) rotate(3deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-12px) rotate(3deg);
+  }
 }
 
 .scroll-reveal {
@@ -289,7 +379,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s ease;
@@ -384,11 +474,25 @@ p {
 }
 
 @keyframes heartbeat {
-  0% { transform: scale(1); }
-  14% { transform: scale(1.12); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.12); }
-  70% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.12);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.12);
+  }
+
+  70% {
+    transform: scale(1);
+  }
 }
 
 .nav-menu {
@@ -464,9 +568,11 @@ p {
 .menu-toggle.active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
+
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.active span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
@@ -510,6 +616,7 @@ p {
   .menu-toggle {
     display: none;
   }
+
   .nav-menu {
     display: flex;
   }
@@ -541,7 +648,7 @@ p {
   font-weight: 700;
   font-size: 0.875rem;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(245,175,66,0.25);
+  border: 1px solid rgba(245, 175, 66, 0.25);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -555,8 +662,15 @@ p {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(1.2); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 .hero-title {
@@ -642,10 +756,12 @@ p {
   margin-left: -8px;
   background-color: var(--color-sky);
 }
+
 .avatar:first-child {
   margin-left: 0;
   background-color: var(--color-coral);
 }
+
 .avatar:last-child {
   background-color: var(--color-sage);
 }
@@ -654,6 +770,7 @@ p {
   font-size: 0.95rem;
   margin-bottom: 0.1rem;
 }
+
 .hero-card-text p {
   font-size: 0.8rem;
 }
@@ -683,7 +800,7 @@ p {
   padding: 1.75rem;
   border-radius: 20px;
   transition: var(--transition-bounce);
-  border: 1px solid rgba(83,100,92,0.03);
+  border: 1px solid rgba(83, 100, 92, 0.03);
 }
 
 .about-card:hover {
@@ -691,8 +808,13 @@ p {
   box-shadow: var(--shadow-sm);
 }
 
-.about-card-coral { border-left: 5px solid var(--color-coral); }
-.about-card-sage { border-left: 5px solid var(--color-sage); }
+.about-card-coral {
+  border-left: 5px solid var(--color-coral);
+}
+
+.about-card-sage {
+  border-left: 5px solid var(--color-sage);
+}
 
 .objectives-box {
   background-color: var(--bg-secondary);
@@ -766,10 +888,21 @@ p {
   transition: var(--transition-smooth);
 }
 
-.benefit-card-coral::before { background-color: var(--color-coral); }
-.benefit-card-sage::before { background-color: var(--color-sage); }
-.benefit-card-amber::before { background-color: var(--color-amber); }
-.benefit-card-sky::before { background-color: var(--color-sky); }
+.benefit-card-coral::before {
+  background-color: var(--color-coral);
+}
+
+.benefit-card-sage::before {
+  background-color: var(--color-sage);
+}
+
+.benefit-card-amber::before {
+  background-color: var(--color-amber);
+}
+
+.benefit-card-sky::before {
+  background-color: var(--color-sky);
+}
 
 .benefit-card:hover {
   transform: translateY(-8px);
@@ -787,10 +920,25 @@ p {
   font-size: 1.75rem;
 }
 
-.benefit-icon-coral { background-color: rgba(229,106,84,0.1); color: var(--color-coral); }
-.benefit-icon-sage { background-color: rgba(95,133,108,0.1); color: var(--color-sage); }
-.benefit-icon-amber { background-color: rgba(245,175,66,0.1); color: var(--color-amber); }
-.benefit-icon-sky { background-color: rgba(123,181,204,0.1); color: var(--color-sky); }
+.benefit-icon-coral {
+  background-color: var(--color-coral-light);
+  color: var(--color-coral);
+}
+
+.benefit-icon-sage {
+  background-color: var(--color-sage-light);
+  color: var(--color-sage);
+}
+
+.benefit-icon-amber {
+  background-color: var(--color-amber-light);
+  color: var(--color-amber);
+}
+
+.benefit-icon-sky {
+  background-color: var(--color-sky-light);
+  color: var(--color-sky);
+}
 
 .benefit-card h3 {
   margin-bottom: 0.85rem;
@@ -896,7 +1044,7 @@ p {
 }
 
 .program-footer {
-  border-top: 1px solid rgba(83,100,92,0.08);
+  border-top: 1px solid rgba(83, 100, 92, 0.08);
   padding-top: 1.25rem;
   display: flex;
   justify-content: space-between;
@@ -1000,6 +1148,7 @@ p {
   font-size: 1.125rem;
   margin-bottom: 0.15rem;
 }
+
 .philosophy-item-text p {
   font-size: 0.95rem;
 }
@@ -1133,6 +1282,7 @@ p {
   margin-bottom: 0.15rem;
   text-align: left;
 }
+
 .testimonial-author-info p {
   font-size: 0.85rem;
   text-align: left;
@@ -1157,7 +1307,7 @@ p {
   align-items: center;
   justify-content: center;
   transition: var(--transition-bounce);
-  border: 1px solid rgba(83,100,92,0.05);
+  border: 1px solid rgba(83, 100, 92, 0.05);
 }
 
 .slider-btn:hover {
@@ -1175,7 +1325,7 @@ p {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgba(83,100,92,0.2);
+  background-color: rgba(83, 100, 92, 0.2);
   transition: var(--transition-smooth);
 }
 
@@ -1226,6 +1376,7 @@ p {
   .booking-form {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .form-full-width {
     grid-column: span 2;
   }
@@ -1316,8 +1467,15 @@ textarea.form-control {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
@@ -1482,7 +1640,7 @@ textarea.form-control {
   padding: 2rem;
   border-radius: 24px;
   box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(83,100,92,0.05);
+  border: 1px solid rgba(83, 100, 92, 0.05);
   transition: var(--transition-bounce);
 }
 
@@ -1507,4 +1665,3 @@ textarea.form-control {
 .policy-card-full {
   grid-column: 1 / -1;
 }
-
