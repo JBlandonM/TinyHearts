@@ -39,20 +39,20 @@ function initHeaderScroll() {
 function initMobileMenu() {
   const toggleBtn = document.getElementById('menu-toggle');
   const overlay = document.getElementById('mobile-overlay');
-  
+
   if (!toggleBtn || !overlay) return;
 
   const toggleMenu = () => {
     const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    
+
     // Toggle state
     toggleBtn.classList.toggle('active');
     overlay.classList.toggle('active');
-    
+
     // Accessibility
     toggleBtn.setAttribute('aria-expanded', !isExpanded);
     overlay.setAttribute('aria-hidden', isExpanded);
-    
+
     // Prevent body scroll when menu is active
     document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
   };
@@ -76,7 +76,7 @@ function initMobileMenu() {
  */
 function initScrollReveal() {
   const revealElements = document.querySelectorAll('.scroll-reveal');
-  
+
   if (!revealElements.length) return;
 
   // Configuration: starts trigger when 10% of element is in view
@@ -108,7 +108,7 @@ function initTestimonialsSlider() {
   const prevBtn = document.getElementById('slider-prev');
   const nextBtn = document.getElementById('slider-next');
   const dotsContainer = document.getElementById('slider-dots');
-  
+
   if (!slider || !prevBtn || !nextBtn) return;
 
   const slides = slider.querySelectorAll('.testimonial-slide');
@@ -118,7 +118,7 @@ function initTestimonialsSlider() {
   const updateSlider = () => {
     // Perform GPU accelerated slide transform
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
+
     // Update dots active status
     const dots = dotsContainer.querySelectorAll('.slider-dot');
     dots.forEach((dot, index) => {
@@ -185,7 +185,7 @@ function initTestimonialsSlider() {
 function initBookingForm() {
   const form = document.getElementById('booking-form');
   const feedback = document.getElementById('form-feedback');
-  
+
   if (!form || !feedback) return;
 
   // Set minimum date to today for date picker
@@ -197,11 +197,11 @@ function initBookingForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Clear previous states
     feedback.style.display = 'none';
     feedback.className = 'form-message';
-    
+
     // Elements to validate
     const parentName = document.getElementById('parent-name');
     const childDetails = document.getElementById('child-details');
@@ -269,22 +269,46 @@ function initBookingForm() {
       return;
     }
 
-    // Simulate API request (Form submission)
+    // EmailJS configuration — REPLACE THESE with your actual credentials
+    const emailjsPublicKey = 'ocEUMfpfn5vd21Yiw';
+    const serviceID = 'service_1u09odc';
+    const templateNotify = 'template_aufy52e';
+    const templateConfirm = 'template_47swull';
+
+    emailjs.init(emailjsPublicKey);
+
+    const message = document.getElementById('message');
+    const templateParams = {
+      name: parentName.value.trim(),
+      child_details: childDetails.value.trim(),
+      email: email.value.trim(),
+      phone: phone.value.trim(),
+      lodging: lodging.value.trim(),
+      preferred_date: preferredDate.value,
+      message: message ? message.value.trim() : '',
+    };
+
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending request...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      // Simulate success
-      showFeedback('Thank you! Your booking inquiry has been sent successfully. We will get back to you within 24 hours to arrange the perfect care for your little ones.', 'success');
-      form.reset();
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-      
-      // Auto scroll back slightly to view message clearly
-      feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 1500);
+    const notifyBusiness = emailjs.send(serviceID, templateNotify, templateParams);
+    const confirmClient = emailjs.send(serviceID, templateConfirm, templateParams);
+
+    Promise.all([notifyBusiness, confirmClient])
+      .then(() => {
+        showFeedback('Thank you! Your booking inquiry has been sent successfully. We will get back to you within 24 hours to arrange the perfect care for your little ones.', 'success');
+        form.reset();
+      })
+      .catch(() => {
+        showFeedback('There was an error sending your request. Please try again or email us directly.', 'error');
+      })
+      .finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
   });
 
   // Helpers
