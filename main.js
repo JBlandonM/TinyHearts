@@ -54,7 +54,7 @@ function initMobileMenu() {
     overlay.setAttribute('aria-hidden', isExpanded);
 
     // Prevent body scroll when menu is active
-    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+    document.body.classList.toggle('no-scroll', !isExpanded);
   };
 
   toggleBtn.addEventListener('click', toggleMenu);

@@ -140,8 +140,27 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 50px;
+  scroll-padding-top: 60px;
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  min-height: 100%;
+  min-height: 100dvh;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+    scroll-padding-top: 55px;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -150,12 +169,36 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  min-height: 100dvh;
+  min-height: 100vh;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
 }
 
 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg {
   max-width: 100%;
   height: auto;
   display: block;
@@ -178,6 +221,42 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+@media (max-width: 480px) {
+  body {
+    line-height: 1.5;
+  }
+}
+
+/* Mejora de tablas y elementos anchos en mobile */
+table,
+pre,
+code,
+blockquote {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Espaciado vertical responsivo */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+blockquote {
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    letter-spacing: -0.03em;
+  }
 }
 
 /* Selection highlight */
@@ -248,21 +327,39 @@ p {
    LAYOUT UTILITIES
    ========================================================================== */
 .container {
-  width: 90%;
+  width: 92%;
   max-width: var(--container-width);
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
+@media (max-width: 480px) {
+  .container {
+    width: 94%;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 96%;
+  }
+}
+
 .section-padding {
   padding: var(--space-lg) 0;
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding: var(--space-md) 0;
+  }
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-md);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
 }
 
@@ -439,15 +536,26 @@ p {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 1.25rem 0;
+  padding: 1rem 0;
   transition: var(--transition-smooth);
 }
 
 .site-header.scrolled {
   background-color: rgba(253, 251, 247, 0.85);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   box-shadow: var(--shadow-sm);
-  padding: 0.85rem 0;
+  padding: 0.65rem 0;
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0.75rem 0;
+  }
+
+  .site-header.scrolled {
+    padding: 0.5rem 0;
+  }
 }
 
 .nav-container {
@@ -464,6 +572,28 @@ p {
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--text-dark);
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.logo .logo-subtitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-coral);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .logo .logo-subtitle {
+    display: none;
+  }
 }
 
 .logo-heart {
@@ -498,13 +628,20 @@ p {
 .nav-menu {
   display: none;
   list-style: none;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
+}
+
+@media (min-width: 992px) {
+  .nav-menu {
+    gap: 2rem;
+  }
 }
 
 .nav-link {
   font-family: var(--font-display);
   font-weight: 600;
+  font-size: clamp(0.85rem, 1vw, 1rem);
   color: var(--text-dark);
   transition: var(--transition-smooth);
   position: relative;
@@ -581,17 +718,26 @@ p {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
+  width: 85%;
   max-width: 400px;
   height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-primary);
   z-index: 99;
   box-shadow: var(--shadow-lg);
-  padding: 8rem 2rem 2rem;
+  padding: 7rem 1.75rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
   transition: var(--transition-smooth);
+}
+
+@media (max-width: 480px) {
+  .nav-mobile-overlay {
+    width: 100%;
+    max-width: 100%;
+    padding: 6rem 1.5rem 2rem;
+  }
 }
 
 .nav-mobile-overlay.active {

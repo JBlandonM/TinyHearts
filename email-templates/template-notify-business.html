@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FEF9F0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #FFFFFF;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #FF8C42 0%, #FFD700 100%);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      color: #FFFFFF;
+      font-size: 24px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .header p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      margin: 8px 0 0 0;
+    }
+
+    .body {
+      padding: 32px 24px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field-label {
+      font-size: 12px;
+      color: #2E8B9A;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .field-value {
+      font-size: 15px;
+      color: #2D3436;
+      background-color: #FEF9F0;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border-left: 4px solid #FF8C42;
+    }
+
+    .field-value.message {
+      white-space: pre-wrap;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, #FF8C42, #2E8B9A);
+      margin: 24px 0;
+      opacity: 0.3;
+    }
+
+    .footer {
+      background-color: #E0F4F5;
+      padding: 20px 24px;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #2E8B9A;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #FF8C42;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>&#x1F31E; New Booking Request</h1>
+      <p>A new inquiry has arrived from the website</p>
+    </div>
+
+    <div class="body">
+      <div class="badge">&#x1F30A; Client Details</div>
+
+      <div class="field">
+        <div class="field-label">Full Name</div>
+        <div class="field-value">{{name}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Children &amp; Ages</div>
+        <div class="field-value">{{child_details}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Email Address</div>
+        <div class="field-value">{{email}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Phone Number</div>
+        <div class="field-value">{{phone}}</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="badge" style="background-color: #2E8B9A;">&#x1F3D4;&#xFE0F; Booking Details</div>
+
+      <div class="field">
+        <div class="field-label">Staying Location</div>
+        <div class="field-value">{{lodging}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Preferred Date</div>
+        <div class="field-value">{{preferred_date}}</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Additional Notes</div>
+        <div class="field-value message">{{message}}</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&#x1F31E; Tiny Hearts &mdash; Caring for little hearts with love</p>
+      <p style="font-size: 11px; color: #5DA9B8; margin-top: 4px;">tinyhearts0130@gmail.com | +506 62793218</p>
+    </div>
+  </div>
+</body>
+
+</html>
