@@ -44,8 +44,8 @@
 
 ## 🟢 6. Experiencia de usuario
 
-- [ ] **Agregar política de privacidad** — Si el formulario recolecta datos personales (nombre, teléfono, email), se necesita un enlace a política de privacidad (GDPR/leyes locales).
-- [ ] **Agregar términos de servicio** — Opcional pero recomendado para un servicio de cuidado infantil con depósitos de garantía.
+- [x] **Agregar política de privacidad** — Creada en `privacy-policy.html` con cobertura de datos personales, EmailJS, GDPR, Ley 8968 de Costa Rica.
+- [x] **Agregar términos de servicio** — Creados en `terms-of-service.html` con condiciones de reserva, cancelación, pagos y responsabilidad.
 - [ ] **Confirmación visual más clara tras envío** — Actualmente hay un mensaje de éxito/error. Considerar un modal de confirmación o redirección suave.
 - [ ] **FAQ section** — Preguntas frecuentes ayudarían a reducir consultas directas y mejorar SEO (rich snippets de FAQ).
 
