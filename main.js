@@ -20,7 +20,7 @@ const CONFIG = {
 
   // --- Scroll Reveal (IntersectionObserver) ---
   SCROLL_THRESHOLD: 0.1,
-  SCROLL_ROOT_MARGIN: '0px',
+  SCROLL_ROOT_MARGIN: '0px 0px -80px 0px',
 
   // --- Header ---
   HEADER_SCROLL_OFFSET: 50,
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initTestimonialsSlider();
   initBookingForm();
+  initBlobScrollPause();
 });
 
 /**
@@ -79,8 +80,18 @@ function initMobileMenu() {
     toggleBtn.setAttribute('aria-expanded', !isExpanded);
     overlay.setAttribute('aria-hidden', isExpanded);
 
-    // Prevent body scroll when menu is active
-    document.body.classList.toggle('no-scroll', !isExpanded);
+    // Prevent body scroll when menu is active (with position save/restore)
+    if (!isExpanded) {
+      const scrollY = window.scrollY;
+      document.body.dataset.scrollY = scrollY;
+      document.body.style.top = `-${scrollY}px`;
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+      document.body.style.top = '';
+      const savedScrollY = parseFloat(document.body.dataset.scrollY || '0');
+      window.scrollTo(0, savedScrollY);
+    }
   };
 
   toggleBtn.addEventListener('click', toggleMenu);
@@ -122,6 +133,24 @@ function initScrollReveal() {
   }, observerOptions);
 
   revealElements.forEach(el => observer.observe(el));
+}
+
+/**
+ * 3b. BLOB ANIMATION PAUSE ON SCROLL
+ * Pauses heavy blur/transform animations while scrolling to reduce GPU load.
+ */
+function initBlobScrollPause() {
+  const blobs = document.querySelectorAll('.blob');
+  if (!blobs.length) return;
+
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    blobs.forEach(b => b.classList.add('paused'));
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      blobs.forEach(b => b.classList.remove('paused'));
+    }, 150);
+  }, { passive: true });
 }
 
 /**

@@ -144,7 +144,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  overflow-x: hidden;
   min-height: 100%;
   min-height: 100dvh;
   font-size: 16px;
@@ -170,6 +169,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -376,9 +376,14 @@ p {
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  filter: blur(40px);
+  filter: blur(20px);
   opacity: 0.6;
+  will-change: transform;
   animation: float-slow 12s infinite alternate ease-in-out;
+}
+
+.blob.paused {
+  animation-play-state: paused;
 }
 
 .blob-1 {
@@ -412,19 +417,20 @@ p {
 
 @keyframes float-slow {
   0% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
+    transform: translate(0, 0);
   }
 
   50% {
-    transform: translate(30px, 50px) rotate(90deg) scale(1.1);
+    transform: translate(30px, -50px);
   }
 
   100% {
-    transform: translate(-20px, -30px) rotate(180deg) scale(0.95);
+    transform: translate(-20px, 30px);
   }
 }
 
 .float-item {
+  will-change: transform;
   animation: float-micro 6s infinite alternate ease-in-out;
 }
 
@@ -441,6 +447,7 @@ p {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px);
+  will-change: opacity, transform;
   transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -537,13 +544,18 @@ p {
   width: 100%;
   z-index: 100;
   padding: 1rem 0;
-  transition: var(--transition-smooth);
-}
-
-.site-header.scrolled {
   background-color: rgba(253, 251, 247, 0.85);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  transition: box-shadow 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+}
+
+.site-header:not(.scrolled) {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+.site-header.scrolled {
   box-shadow: var(--shadow-sm);
   padding: 0.65rem 0;
 }
