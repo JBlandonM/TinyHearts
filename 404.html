@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Tiny Hearts 0130</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e56a54' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fdfbf7;
+      color: #232c28;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+    .heart {
+      font-size: 4rem;
+      color: #e56a54;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.125rem;
+      color: #53645c;
+      margin-bottom: 2rem;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      background: #e56a54;
+      color: white;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #cd543f; }
+  </style>
+</head>
+<body>
+  <div class="heart">♥</div>
+  <h1>Page not found</h1>
+  <p>The page you're looking for doesn't exist or has been moved.</p>
+  <a href="/TinyHearts/" class="btn">Back to Home</a>
+</body>
+</html>

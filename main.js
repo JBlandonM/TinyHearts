@@ -3,6 +3,32 @@
  * Main interactive behaviors, sliders, scroll reveals, and elegant validation
  */
 
+/**
+ * App configuration — centralized constants
+ * Edit values here instead of hunting through functions.
+ */
+const CONFIG = {
+  // --- EmailJS ---
+  EMAILJS_PUBLIC_KEY: 'ocEUMfpfn5vd21Yiw',
+  SERVICE_ID: 'service_1u09odc',
+  TEMPLATE_NOTIFY: 'template_aufy52e',
+  TEMPLATE_CONFIRM: 'template_47swull',
+
+  // --- Slider (ms) ---
+  SLIDER_INTERVAL: 8000,
+  SLIDER_RESET_INTERVAL: 10000,
+
+  // --- Scroll Reveal (IntersectionObserver) ---
+  SCROLL_THRESHOLD: 0.1,
+  SCROLL_ROOT_MARGIN: '0px',
+
+  // --- Header ---
+  HEADER_SCROLL_OFFSET: 50,
+
+  // --- Booking ---
+  CR_TIMEZONE_OFFSET: '-06:00',
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
@@ -20,7 +46,7 @@ function initHeaderScroll() {
   if (!header) return;
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > CONFIG.HEADER_SCROLL_OFFSET) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -79,11 +105,10 @@ function initScrollReveal() {
 
   if (!revealElements.length) return;
 
-  // Configuration: starts trigger when 10% of element is in view
   const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: CONFIG.SCROLL_ROOT_MARGIN,
+    threshold: CONFIG.SCROLL_THRESHOLD,
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
@@ -164,13 +189,11 @@ function initTestimonialsSlider() {
     }
   });
 
-  // Optional: Auto-slide testimonials every 8 seconds
-  let autoSlideTimer = setInterval(nextSlide, 8000);
+  let autoSlideTimer = setInterval(nextSlide, CONFIG.SLIDER_INTERVAL);
 
-  // Reset timer on user interaction
   const resetTimer = () => {
     clearInterval(autoSlideTimer);
-    autoSlideTimer = setInterval(nextSlide, 10000);
+    autoSlideTimer = setInterval(nextSlide, CONFIG.SLIDER_RESET_INTERVAL);
   };
 
   [prevBtn, nextBtn, dotsContainer].forEach(element => {
@@ -188,10 +211,14 @@ function initBookingForm() {
 
   if (!form || !feedback) return;
 
-  // Set minimum date to today for date picker
+  // Set minimum date using Costa Rica timezone (UTC-6)
   const dateInput = document.getElementById('preferred-date');
   if (dateInput) {
-    const today = new Date().toISOString().split('T')[0];
+    const crNow = new Date();
+    const crOffset = -360; // UTC-6 in minutes
+    const localOffset = crNow.getTimezoneOffset();
+    const crTime = new Date(crNow.getTime() + (crOffset + localOffset) * 60000);
+    const today = crTime.toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
   }
 
@@ -269,13 +296,14 @@ function initBookingForm() {
       return;
     }
 
-    // EmailJS configuration — REPLACE THESE with your actual credentials
-    const emailjsPublicKey = 'ocEUMfpfn5vd21Yiw';
-    const serviceID = 'service_1u09odc';
-    const templateNotify = 'template_aufy52e';
-    const templateConfirm = 'template_47swull';
+    // Honeypot check — reject if bot filled the hidden field
+    const honeypot = document.getElementById('website');
+    if (honeypot && honeypot.value.trim() !== '') {
+      showFeedback('Your request could not be processed. Please try again.', 'error');
+      return;
+    }
 
-    emailjs.init(emailjsPublicKey);
+    emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
 
     const message = document.getElementById('message');
     const templateParams = {
@@ -293,8 +321,8 @@ function initBookingForm() {
     submitBtn.textContent = 'Sending request...';
     submitBtn.disabled = true;
 
-    const notifyBusiness = emailjs.send(serviceID, templateNotify, templateParams);
-    const confirmClient = emailjs.send(serviceID, templateConfirm, templateParams);
+    const notifyBusiness = emailjs.send(CONFIG.SERVICE_ID, CONFIG.TEMPLATE_NOTIFY, templateParams);
+    const confirmClient = emailjs.send(CONFIG.SERVICE_ID, CONFIG.TEMPLATE_CONFIRM, templateParams);
 
     Promise.all([notifyBusiness, confirmClient])
       .then(() => {

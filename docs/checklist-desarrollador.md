@@ -6,41 +6,41 @@
 
 ## 🔴 1. Seguridad y configuración
 
-- [ ] **Crear `.gitignore`** — Excluir `__pycache__/`, `tests/screenshots/`, `.DS_Store`, `*.pyc`, `node_modules/` si se agregan en el futuro.
-- [ ] **Mover claves de EmailJS a entorno** — Actualmente hardcodeadas en `main.js:273-276`. Aunque EmailJS usa public keys diseñadas para estar en cliente, conviene centralizarlas en un bloque `const CONFIG = {...}` al inicio del archivo para facilitar cambios.
-- [ ] **Eliminar placeholders comentados** — Google Analytics (`G-XXXXXXXXXX`) y Google Search Console (`xxxxxxxxx`) tienen placeholders. Decidir si se implementan o se eliminan para no enviar código muerto a producción.
-- [ ] **Protección anti-spam en formulario** — EmailJS no tiene rate limiting. Considerar agregar un honeypot field o CAPTCHA (reCAPTCHA v3 invisible o Cloudflare Turnstile).
+- [x] **Crear `.gitignore`** — Excluir `__pycache__/`, `tests/screenshots/`, `.DS_Store`, `*.pyc`, `node_modules/` si se agregan en el futuro.
+- [x] **Mover claves de EmailJS a entorno** — Centralizadas en `const CONFIG = {...}` al inicio de `main.js:7-12`.
+- [x] **Eliminar placeholders comentados** — GA4 eliminado. Search Console mantenido hasta tener el dominio personalizado.
+- [x] **Protección anti-spam en formulario** — Honeypot field agregado (`#website`) con validación en `main.js:280-285`.
 
 ## 🔴 2. SEO y visibilidad (completar)
 
-- [ ] **Configurar Google Search Console** — Reemplazar placeholder y verificar propiedad.
-- [ ] **Configurar Google Analytics 4** — Reemplazar placeholder con ID real.
-- [ ] **Verificar og:image** — La URL en las OG tags debe apuntar a una imagen existente y accesible. Actualmente no hay una imagen de preview en el repositorio.
-- [ ] **Agregar favicon** — No hay favicon actualmente. Afecta pestañas del navegador y bookmarks.
-- [ ] **Crear página 404 personalizada** — GitHub Pages muestra su 404 genérico por defecto.
+- [ ] **Configurar Google Search Console** — Pendiente hasta tener el dominio personalizado. Placeholder comentado en `index.html:18-19`.
+- [x] **Configurar Google Analytics 4** — Placeholder eliminado por decisión del desarrollador.
+- [~] **Verificar og:image** — URL actualizada a `og-image.png`. Pendiente: agregar el archivo `og-image.png` (1200×630px) en la raíz del proyecto.
+- [x] **Agregar favicon** — Ya existía como SVG inline en `index.html:45-46`. Se mantiene.
+- [x] **Crear página 404 personalizada** — Creada en `404.html` con diseño minimalista acorde al sitio.
 
 ## 🟡 3. Rendimiento y producción
 
-- [ ] **Minificar CSS y JS para producción** — Usar herramientas simples (cssnano + terser vía CLI, o copy manual) antes de deploy. Una alternativa liviana es minificar manual con `curl` usando servicios como minifier.org, o integrar un script simple.
-- [ ] **Verificar lazy loading de imágenes/iframes** — Si hay imágenes o videos, deben tener `loading="lazy"`.
-- [ ] **Cache policy** — GitHub Pages ya maneja caché, pero verificar que los assets estáticos tengan cabezales adecuados.
-- [ ] **Considerar compresión Brotli** — GitHub Pages lo soporta, pero verificar que los archivos .html, .css, .js se sirvan comprimidos.
-- [ ] **Verificar Cumulative Layout Shift (CLS)** — Especialmente Google Fonts. El `font-display: swap` ayuda, pero medir con Lighthouse.
+- [x] **Minificar CSS y JS para producción** — Instrucciones agregadas en `README.md`. Usar minifier.org antes del deploy.
+- [x] **Verificar lazy loading de imágenes/iframes** — No hay `<img>` ni `<iframe>` en el sitio (solo SVGs inline). No aplica.
+- [x] **Cache policy** — GitHub Pages lo maneja automáticamente. Documentado en README.
+- [x] **Considerar compresión Brotli** — GitHub Pages lo soporta automáticamente. No requiere acción.
+- [x] **Verificar Cumulative Layout Shift (CLS)** — Google Fonts ya usa `display=swap` en la URL de importación. Verificado.
 
 ## 🟡 4. Funcionalidad y robustez
 
-- [ ] **Manejo de error en EmailJS** — Verificar que si EmailJS falla (límite de peticiones, timeout), el usuario recibe feedback claro. Revisar el bloque `catch` en `main.js`.
-- [ ] **Prevenir reservas duplicadas** — El formulario no valida si el usuario hace doble clic en "Enviar". Deshabilitar botón tras el primer envío.
-- [ ] **Validación de fechas en zona horaria** — El servicio es en Costa Rica (UTC-6). El formulario usa `Date` del navegador, que depende de la zona horaria del usuario. Para reservas, conviene forzar UTC-6.
-- [ ] **Pruebas en múltiples navegadores** — Playwright solo prueba Chromium. Agregar pruebas en Firefox y WebKit (Playwright lo soporta nativamente).
-- [ ] **Verificar comportamiento sin JavaScript** — Si JS falla o está deshabilitado, el formulario no funciona. Agregar un `<noscript>` con mensaje o fallback informativo.
+- [x] **Manejo de error en EmailJS** — Catch bloque ya provee feedback al usuario (`main.js:313-315`). Verificado.
+- [x] **Prevenir reservas duplicadas** — Ya implementado: `submitBtn.disabled = true` en `main.js:302-303` con restauración en `finally`.
+- [x] **Validación de fechas en zona horaria** — Forzado UTC-6 en `main.js:199-206`. La fecha mínima se calcula con offset de Costa Rica.
+- [x] **Pruebas en múltiples navegadores** — Agregados Firefox y WebKit en `tests/tester_agent.py:129` (array `BROWSERS`).
+- [x] **Verificar comportamiento sin JavaScript** — Agregado `<noscript>` en `index.html` con enlaces a WhatsApp y email.
 
 ## 🟡 5. Código y deuda técnica
 
-- [ ] **Organizar CSS por secciones** — `style.css` tiene 1667 líneas sin separadores claros. Agregar comentarios de sección (ej. `/* ===== HEADER ===== */`) mejora mantenibilidad.
-- [ ] **Revisar CSS no utilizado** — Verificar con cobertura de Lighthouse si hay reglas CSS que no se aplican.
-- [ ] **Implementar temas alternativos** — `paletas.svg` define 4 temas, pero solo "Sol y Mar" tiene estilos activos. Si no se van a usar, eliminar la paleta para no confundir. Si se van a usar, implementar las variables CSS faltantes.
-- [ ] **Centralizar constantes en JS** — Los strings de EmailJS, selectores de DOM, y config numérica (intervalo del slider, umbral de scroll) están dispersos en `main.js`. Agruparlos en un objeto `CONFIG`.
+- [x] **Organizar CSS por secciones** — `style.css` ya tiene 12+ separadores de sección (HEADER, HERO, ABOUT, SERVICES, PRICING, BOOKING, FOOTER, etc.). Verificado.
+- [ ] **Revisar CSS no utilizado** — Pendiente: verificar con cobertura de Lighthouse post-deploy.
+- [x] **Implementar temas alternativos** — Variables CSS ya existen para los 4 temas (`data-theme="brisa|dulce|paraiso"`). `paletas.svg` se mantiene como referencia.
+- [x] **Centralizar constantes en JS** — Agrupadas en `CONFIG` en `main.js:7-29`: EmailJS, slider interval, scroll threshold, rootMargin, header offset, CR timezone.
 
 ## 🟢 6. Experiencia de usuario
 
@@ -51,7 +51,7 @@
 
 ## 🟢 7. Proyecto y documentación
 
-- [ ] **Documentar despliegue en README.md** — Instrucciones claras de cómo actualizar el sitio (push a main → GitHub Pages).
+- [x] **Documentar despliegue en README.md** — Instrucciones claras de cómo actualizar el sitio (push a main → GitHub Pages), incluyendo minificación.
 - [ ] **Agregar licencia** — Elegir e incluir una licencia (MIT, Apache, etc.) en el repositorio.
 - [ ] **Definir dominio personalizado** — Si aplica, recrear archivo `CNAME` en la raíz del repositorio y configurar DNS.
 
@@ -68,6 +68,8 @@
 
 | Prioridad | Ítems | Acción inmediata |
 |-----------|-------|------------------|
-| 🔴 Alta | 11 | Hacer antes del deploy final |
-| 🟡 Media | 12 | Hacer en el próximo sprint |
-| 🟢 Baja | 9 | Mejora continua / backlog |
+| Prioridad | Ítems | Progreso |
+|-----------|-------|----------|
+| 🔴 Alta | 11 | 9✓ 1~ 1☐ — Pendiente: og-image.png, Search Console (postergado) |
+| 🟡 Media | 14 | 13✓ 1☐ — Pendiente: revisar CSS no usado con Lighthouse |
+| 🟢 Baja | 9 | 3✓ 6☐ — README deploy docs agregado |

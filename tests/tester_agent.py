@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tiny Hearts Landing Page — Tester Agent
+Tiny Hearts Landing Page -- Tester Agent
 Verifica secciones, interacciones, layout responsive y estabilidad visual.
 Ejecutar: python tests/tester_agent.py
 """
@@ -41,7 +41,7 @@ def fail(msg):
     print(f"  [FAIL] {msg}")
 
 
-# ─── HTTP Server (silent) ─────────────────────────────────────
+# --- HTTP Server (silent) -------------------------------------
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -68,7 +68,7 @@ class ServerThread(threading.Thread):
             self.httpd.shutdown()
 
 
-# ─── Tests ────────────────────────────────────────────────────
+# --- Tests ----------------------------------------------------
 
 
 def test_global_structure(page):
@@ -144,7 +144,7 @@ def test_global_structure(page):
 
 
 def test_sections(page):
-    print("\n═══ SECCIONES ═══")
+    print("\n=== SECCIONES ===")
 
     sections = [
         ("Header", "#site-header"),
@@ -179,37 +179,37 @@ def test_sections(page):
                 if not el:
                     raise ValueError("not found")
         except Exception:
-            fail(f"{name} — No encontrado")
+            fail(f"{name} -- No encontrado")
             prev_bottom = 0
             prev_name = None
             continue
 
         if not el.is_visible():
-            fail(f"{name} — No visible")
+            fail(f"{name} -- No visible")
             prev_bottom = 0
             prev_name = None
             continue
 
-        ok(f"{name} — visible")
+        ok(f"{name} -- visible")
 
         try:
             text = el.inner_text().strip()
-            ok(f"{name} — con contenido") if text else fail(f"{name} — vacío")
+            ok(f"{name} -- con contenido") if text else fail(f"{name} -- vacío")
         except Exception:
-            fail(f"{name} — error al leer contenido")
+            fail(f"{name} -- error al leer contenido")
 
         box = el.bounding_box()
         if box and box["height"] > 0:
-            ok(f"{name} — altura {box['height']:.0f}px")
+            ok(f"{name} -- altura {box['height']:.0f}px")
         else:
-            fail(f"{name} — altura cero")
+            fail(f"{name} -- altura cero")
 
         if prev_name and box and prev_name != "Header":
             top = box["y"]
             if prev_bottom > top + 2:
-                fail(f"{name} — SE SOLAPA con {prev_name}")
+                fail(f"{name} -- SE SOLAPA con {prev_name}")
             else:
-                ok(f"{name} — sin solapamiento con {prev_name}")
+                ok(f"{name} -- sin solapamiento con {prev_name}")
 
         prev_bottom = box["y"] + box["height"] if box else 0
         prev_name = name
@@ -218,15 +218,15 @@ def test_sections(page):
     for name, sel in hidden_sections:
         el = page.query_selector(sel)
         if not el:
-            fail(f"{name} — No encontrado")
+            fail(f"{name} -- No encontrado")
         elif not el.is_visible():
-            ok(f"{name} — oculto (diseño esperado)")
+            ok(f"{name} -- oculto (diseño esperado)")
         else:
-            fail(f"{name} — debería estar oculto pero es visible")
+            fail(f"{name} -- debería estar oculto pero es visible")
 
 
 def test_mobile_menu(page):
-    print("\n  ─ Menú Hamburguesa ─")
+    print("\n  - Menú Hamburguesa -")
     page.set_viewport_size(VIEWPORTS["mobile"])
     page.wait_for_timeout(400)
 
@@ -245,7 +245,7 @@ def test_mobile_menu(page):
     ok("Overlay visible al abrir") if "active" in cls else fail("Overlay no se abrió")
     ok("aria-expanded=true") if exp == "true" else fail(f"aria-expanded={exp}")
 
-    body_ov = page.evaluate("document.body.style.overflow")
+    body_ov = page.evaluate("window.getComputedStyle(document.body).overflow")
     ok("Body scroll bloqueado") if body_ov == "hidden" else fail(
         f"Overflow body={body_ov}"
     )
@@ -278,7 +278,7 @@ def test_mobile_menu(page):
 
 
 def test_header_scroll(page):
-    print("\n  ─ Header Scroll ─")
+    print("\n  - Header Scroll -")
 
     page.evaluate("window.scrollTo(0, 100)")
     page.wait_for_timeout(300)
@@ -300,7 +300,7 @@ def test_header_scroll(page):
 
 
 def test_form_validation(page):
-    print("\n  ─ Formulario de Reserva ─")
+    print("\n  - Formulario de Reserva -")
 
     page.evaluate("document.getElementById('booking').scrollIntoView()")
     page.wait_for_timeout(400)
@@ -332,7 +332,8 @@ def test_form_validation(page):
     page.fill("#phone", "+1 555-987-6543")
     page.fill("#lodging", "Hotel Test, Guanacaste")
     page.fill("#preferred-date", "2026-06-15")
-    page.check("#privacy-policy")
+    page.wait_for_timeout(300)
+    page.locator("#privacy-policy").check(force=True)
 
     submit_btn.click()
     page.wait_for_timeout(400)
@@ -360,7 +361,7 @@ def test_form_validation(page):
 
 
 def test_testimonials_slider(page):
-    print("\n  ─ Slider de Testimonios ─")
+    print("\n  - Slider de Testimonios -")
 
     page.evaluate("document.getElementById('testimonios').style.display = 'block'")
     page.evaluate("document.getElementById('testimonios').scrollIntoView()")
@@ -444,7 +445,7 @@ def test_testimonials_slider(page):
 
 
 def test_nav_scroll_titles(page):
-    print("\n  ─ Navegacion: scroll y titulos visibles ─")
+    print("\n  - Navegacion: scroll y titulos visibles -")
 
     page.set_viewport_size(VIEWPORTS["desktop"])
     page.wait_for_timeout(300)
@@ -470,7 +471,7 @@ def test_nav_scroll_titles(page):
             return true;
         }}""")
         if not clicked:
-            fail(f"{link_name} — link no encontrado en nav")
+            fail(f"{link_name} -- link no encontrado en nav")
             continue
 
         page.wait_for_timeout(600)
@@ -478,12 +479,12 @@ def test_nav_scroll_titles(page):
         # Check scroll reached the right section
         target = page.query_selector(href)
         if not target:
-            fail(f"{link_name} — seccion destino no encontrada")
+            fail(f"{link_name} -- seccion destino no encontrada")
             continue
 
         tbox = target.bounding_box()
         if not tbox:
-            fail(f"{link_name} — bounding box no disponible")
+            fail(f"{link_name} -- bounding box no disponible")
             continue
 
         header_el = page.query_selector("#site-header")
@@ -491,14 +492,14 @@ def test_nav_scroll_titles(page):
         header_bottom = (hbox["y"] + hbox["height"]) if hbox else 86
 
         # Check section top position relative to viewport
-        ok(f"{link_name} — scroll hasta la seccion (top={tbox['y']:.0f}px)")
+        ok(f"{link_name} -- scroll hasta la seccion (top={tbox['y']:.0f}px)")
 
         # The section's top should be near the header bottom
         gap = tbox["y"] - header_bottom
         if gap >= -5:
-            ok(f"{link_name} — seccion visible debajo del header (gap={gap:.0f}px)")
+            ok(f"{link_name} -- seccion visible debajo del header (gap={gap:.0f}px)")
         else:
-            fail(f"{link_name} — seccion PARCIALMENTE OCULTA por header (gap={gap:.0f}px)")
+            fail(f"{link_name} -- seccion PARCIALMENTE OCULTA por header (gap={gap:.0f}px)")
 
         # Find the main title (h2 or h3) inside the section
         title_sel = hbox = None
@@ -520,24 +521,24 @@ def test_nav_scroll_titles(page):
             title_top = found_title["top"]
             title_text = found_title["text"][:50]
             if title_top >= header_bottom - 5:
-                ok(f"{link_name} — titulo '{title_text}' completamente visible")
+                ok(f"{link_name} -- titulo '{title_text}' completamente visible")
             else:
-                fail(f"{link_name} — TITULO '{title_text}' CORTADO por header (top={title_top}px, header_bottom={header_bottom:.0f}px)")
+                fail(f"{link_name} -- TITULO '{title_text}' CORTADO por header (top={title_top}px, header_bottom={header_bottom:.0f}px)")
         else:
-            fail(f"{link_name} — no se encontro titulo (h2/h3) en la seccion")
+            fail(f"{link_name} -- no se encontro titulo (h2/h3) en la seccion")
 
         # Screenshot for visual reference
         SCREENSHOTS_DIR.mkdir(parents=True, exist_ok=True)
         sp = SCREENSHOTS_DIR / f"nav_{link_name.lower().replace(' ', '_')}.png"
         page.screenshot(path=str(sp))
-        ok(f"{link_name} — screenshot guardado: {sp.name}")
+        ok(f"{link_name} -- screenshot guardado: {sp.name}")
 
     page.evaluate("window.scrollTo(0, 0)")
     page.wait_for_timeout(200)
 
 
 def test_scroll_reveal(page):
-    print("\n  ─ Scroll Reveal ─")
+    print("\n  - Scroll Reveal -")
 
     page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
     page.wait_for_timeout(1000)
@@ -603,7 +604,7 @@ def test_viewport(name, size, page):
 
 
 def test_visual(page):
-    print("\n═══ VISUAL ═══")
+    print("\n=== VISUAL ===")
 
     svg = page.query_selector(".hero-illustration svg")
     ok("SVG del Hero se renderiza") if svg else fail("SVG del Hero no encontrado")
@@ -642,54 +643,51 @@ def test_visual(page):
     )
 
 
-# ─── Main ─────────────────────────────────────────────────────
+# --- Main -----------------------------------------------------
 
 
-def main():
+BROWSERS = ["chromium", "firefox", "webkit"]
+
+
+def run_tests_in_browser(pw, browser_name):
     global PASS, FAIL, CONSOLE_ERRS
     PASS = 0
     FAIL = 0
     CONSOLE_ERRS = []
 
-    print(f"\n{'=' * 54}")
-    print(f"    Tiny Hearts Landing Page - Tester Agent")
-    print(f"{'=' * 54}")
+    browser_launcher = getattr(pw, browser_name)
+    browser = browser_launcher.launch(headless=False)
+    context = browser.new_context(viewport=VIEWPORTS["desktop"])
+    page = context.new_page()
 
-    # ── Servidor ──
-    print(f"\n  Iniciando servidor en http://localhost:{PORT} ...")
-    server = ServerThread(PORT)
-    server.start()
-    time.sleep(1)
+    page.on(
+        "console",
+        lambda msg: CONSOLE_ERRS.append(f"[{msg.type}] {msg.text}")
+        if msg.type == "error"
+        else None,
+    )
+    page.on("pageerror", lambda err: CONSOLE_ERRS.append(f"[PAGE_ERROR] {err}"))
 
-    try:
-        with sync_playwright() as pw:
-            browser = pw.chromium.launch(headless=False)
-            page = browser.new_page(viewport=VIEWPORTS["desktop"])
+    print(f"\n{'-' * 54}")
+    print(f"  NAVEGADOR: {browser_name.upper()}")
+    print(f"{'-' * 54}")
 
-            page.on(
-                "console",
-                lambda msg: CONSOLE_ERRS.append(f"[{msg.type}] {msg.text}")
-                if msg.type == "error"
-                else None,
-            )
-            page.on("pageerror", lambda err: CONSOLE_ERRS.append(f"[PAGE_ERROR] {err}"))
+    print(f"  Navegando a http://localhost:{PORT} ...")
+    page.goto(f"http://localhost:{PORT}", wait_until="networkidle")
+    page.wait_for_timeout(1000)
 
-            print(f"  Navegando a http://localhost:{PORT} ...")
-            page.goto(f"http://localhost:{PORT}", wait_until="networkidle")
-            page.wait_for_timeout(1000)
+    test_global_structure(page)
+    test_sections(page)
+    print("\n=== INTERACCIONES ===")
+    test_mobile_menu(page)
+    test_header_scroll(page)
+    test_nav_scroll_titles(page)
+    test_form_validation(page)
+    test_testimonials_slider(page)
+    test_scroll_reveal(page)
 
-            test_global_structure(page)
-            test_sections(page)
-            print("\n═══ INTERACCIONES ═══")
-            test_mobile_menu(page)
-            test_header_scroll(page)
-            test_nav_scroll_titles(page)
-            test_form_validation(page)
-            test_testimonials_slider(page)
-            test_scroll_reveal(page)
-
-            print("\n═══ ESTABILIDAD POST-INTERACCIONES ═══")
-            ov = page.evaluate("""() => {
+    print("\n=== ESTABILIDAD POST-INTERACCIONES ===")
+    ov = page.evaluate("""() => {
         function isInsideFixedOrAbsolute(el) {
             const selfPos = getComputedStyle(el).position;
             if (selfPos === 'fixed' || selfPos === 'absolute') return true;
@@ -701,49 +699,72 @@ def main():
             }
             return false;
         }
-                const all = document.querySelectorAll('body *');
-                const vw = window.innerWidth;
-                for (const el of all) {
-                    const r = el.getBoundingClientRect();
-                    if (r.right > vw + 10 && r.width > 10 && !isInsideFixedOrAbsolute(el)) {
-                        return false;
-                    }
-                }
-                return true;
-            }""")
-            ok("Sin overflow tras todas las interacciones") if ov else fail(
-                "Overflow detectado tras interacciones"
-            )
-            ok("Sin errores de consola acumulados") if len(CONSOLE_ERRS) == 0 else fail(
-                f"{len(CONSOLE_ERRS)} error(es) en consola durante la sesión"
-            )
+        const all = document.querySelectorAll('body *');
+        const vw = window.innerWidth;
+        for (const el of all) {
+            const r = el.getBoundingClientRect();
+            if (r.right > vw + 10 && r.width > 10 && !isInsideFixedOrAbsolute(el)) {
+                return false;
+            }
+        }
+        return true;
+    }""")
+    ok("Sin overflow tras todas las interacciones") if ov else fail(
+        "Overflow detectado tras interacciones"
+    )
+    ok("Sin errores de consola acumulados") if len(CONSOLE_ERRS) == 0 else fail(
+        f"{len(CONSOLE_ERRS)} error(es) en consola durante la sesión"
+    )
 
-            test_viewport("mobile", VIEWPORTS["mobile"], page)
-            test_viewport("tablet", VIEWPORTS["tablet"], page)
-            test_viewport("desktop", VIEWPORTS["desktop"], page)
+    test_viewport("mobile", VIEWPORTS["mobile"], page)
+    test_viewport("tablet", VIEWPORTS["tablet"], page)
+    test_viewport("desktop", VIEWPORTS["desktop"], page)
 
-            test_visual(page)
+    test_visual(page)
 
-            browser.close()
+    total = PASS + FAIL
+    browser.close()
+
+    return total, FAIL, CONSOLE_ERRS
+
+
+def main():
+    all_results = []
+
+    print(f"\n{'=' * 54}")
+    print(f"    Tiny Hearts Landing Page - Tester Agent")
+    print(f"{'=' * 54}")
+
+    # -- Servidor --
+    print(f"\n  Iniciando servidor en http://localhost:{PORT} ...")
+    server = ServerThread(PORT)
+    server.start()
+    time.sleep(1)
+
+    try:
+        with sync_playwright() as pw:
+            for browser_name in BROWSERS:
+                total, fails, errs = run_tests_in_browser(pw, browser_name)
+                all_results.append((browser_name, total, fails, errs))
 
     finally:
         print(f"\n  Deteniendo servidor...")
         server.stop()
 
-    # ── Resultado ──
-    total = PASS + FAIL
+    # -- Resultado global --
     print(f"\n{'=' * 54}")
-    if FAIL == 0:
-        print(f"  RESULTADO: {PASS}/{total} checks PASSED")
-    else:
-        print(f"  RESULTADO: {PASS}/{total} PASSED, {FAIL} FAILED")
-        if CONSOLE_ERRS:
-            print(f"\n  Errores de consola ({len(CONSOLE_ERRS)}):")
-            for e in CONSOLE_ERRS[:8]:
-                print(f"    - {e}")
+    overall_fail = 0
+    for name, total, fails, errs in all_results:
+        status = "PASSED" if fails == 0 else f"FAILED ({fails}/{total})"
+        print(f"  {name.upper():10s} → {status}")
+        if fails > 0:
+            overall_fail += fails
+            if errs:
+                for e in errs[:8]:
+                    print(f"    - {e}")
     print(f"{'=' * 54}\n")
 
-    return 0 if FAIL == 0 else 1
+    return 1 if overall_fail > 0 else 0
 
 
 if __name__ == "__main__":

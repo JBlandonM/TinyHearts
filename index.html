@@ -15,12 +15,8 @@
   <meta name="author" content="Tiny Hearts 0130">
   <meta name="theme-color" content="#e56a54">
 
-  <!-- Google Search Console verification (add when ready) -->
+  <!-- Google Search Console verification — set when the custom domain is ready -->
   <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE"> -->
-
-  <!-- Google Analytics 4 (add when ready) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -28,7 +24,8 @@
   <meta property="og:title" content="Tiny Hearts 0130 | Premium Mobile Childcare & Babysitting Costa Rica">
   <meta property="og:description"
     content="Certified, safe, and loving mobile childcare service traveling to your hotel or home anywhere in Costa Rica.">
-  <meta property="og:image" content="https://jblandonm.github.io/TinyHearts/paletas.svg">
+  <!-- TODO: Replace og-image.png with your actual social preview image (recommended: 1200x630px) -->
+  <meta property="og:image" content="https://jblandonm.github.io/TinyHearts/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -36,7 +33,7 @@
   <meta property="twitter:title" content="Tiny Hearts 0130 | Premium Mobile Childcare & Babysitting Costa Rica">
   <meta property="twitter:description"
     content="Certified, safe, and loving mobile childcare service traveling to your hotel or home anywhere in Costa Rica.">
-  <meta property="twitter:image" content="https://jblandonm.github.io/TinyHearts/paletas.svg">
+  <meta property="twitter:image" content="https://jblandonm.github.io/TinyHearts/og-image.png">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://jblandonm.github.io/TinyHearts/">
@@ -58,7 +55,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Tiny Hearts 0130",
-    "image": "https://jblandonm.github.io/TinyHearts/paletas.svg",
+    "image": "https://jblandonm.github.io/TinyHearts/og-image.png",
     "@id": "https://jblandonm.github.io/TinyHearts/#tiny-hearts-babysitting",
     "url": "https://jblandonm.github.io/TinyHearts/",
     "telephone": "+50662793218",
@@ -1008,6 +1005,11 @@
           <div id="form-feedback" class="form-message" role="alert"></div>
 
           <form class="booking-form" id="booking-form" novalidate>
+            <!-- Honeypot field — invisible to real users, traps bots -->
+            <div style="position: absolute; left: -9999px;" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-group">
               <label for="parent-name" class="form-label">Full Name *</label>
               <input type="text" id="parent-name" class="form-control" placeholder="E.g., Sarah Smith" required
@@ -1163,6 +1165,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Noscript fallback -->
+  <noscript>
+    <div style="padding:2rem;text-align:center;background:#f6efe2;border-top:2px solid #e56a54;font-family:'Plus Jakarta Sans',sans-serif;">
+      <p style="font-size:1rem;color:#232c28;margin-bottom:0.5rem;"><strong>JavaScript is required</strong> to use the booking form.</p>
+      <p style="font-size:0.9rem;color:#53645c;">Please <a href="https://wa.me/50662793218" style="color:#e56a54;">contact us via WhatsApp</a> or email <a href="mailto:tinyhearts0130@gmail.com" style="color:#e56a54;">tinyhearts0130@gmail.com</a> to book your caregiver.</p>
+    </div>
+  </noscript>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

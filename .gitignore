@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Tests screenshots
+tests/screenshots/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Dependencies (if added in the future)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
