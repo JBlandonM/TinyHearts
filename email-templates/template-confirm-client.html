@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { margin: 0; padding: 0; background-color: #FEF9F0; font-family: 'Segoe UI', Arial, sans-serif; }
+    .container { max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .header { background: linear-gradient(135deg, #2E8B9A 0%, #5DA9B8 100%); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #FFFFFF; font-size: 24px; margin: 0; font-weight: 700; }
+    .header p { color: rgba(255,255,255,0.9); font-size: 14px; margin: 8px 0 0 0; }
+    .body { padding: 32px 24px; }
+    .hero-emoji { text-align: center; font-size: 48px; margin-bottom: 16px; }
+    .greeting { font-size: 20px; color: #2D3436; font-weight: 700; margin-bottom: 8px; text-align: center; }
+    .paragraph { font-size: 15px; color: #636E72; line-height: 1.7; margin-bottom: 16px; text-align: center; }
+    .info-box { background: linear-gradient(135deg, #FEF9F0 0%, #E0F4F5 100%); border-radius: 12px; padding: 20px; margin: 24px 0; border: 1px solid #5DA9B8; }
+    .info-box h3 { color: #2E8B9A; font-size: 16px; margin: 0 0 8px 0; text-align: center; }
+    .info-box p { color: #636E72; font-size: 14px; line-height: 1.6; margin: 0; text-align: center; }
+    .details-box { background-color: #FFFFFF; border: 2px dashed #FF8C42; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+    .details-box h4 { color: #FF8C42; font-size: 13px; margin: 0 0 12px 0; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+    .detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #F0EDE6; font-size: 14px; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { color: #2E8B9A; font-weight: 600; }
+    .detail-value { color: #2D3436; text-align: right; }
+    .divider { height: 1px; background: linear-gradient(90deg, #FF8C42, #2E8B9A); margin: 24px 0; opacity: 0.3; }
+    .contact-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
+    .contact-item { text-align: center; }
+    .contact-icon { font-size: 20px; }
+    .contact-text { font-size: 13px; color: #636E72; margin-top: 4px; }
+    .footer { background: linear-gradient(135deg, #FF8C42 0%, #FFD700 100%); padding: 20px 24px; text-align: center; }
+    .footer p { color: #FFFFFF; font-size: 13px; margin: 0; }
+    .footer p a { color: #FFFFFF; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>&#x1F31E; We received your inquiry!</h1>
+      <p>Thank you for choosing Tiny Hearts, {{name}}</p>
+    </div>
+
+    <div class="body">
+      <div class="hero-emoji">&#x1F49B;</div>
+      <div class="greeting">Hello {{name}}!</div>
+      <p class="paragraph">
+        We have received your booking request and are delighted that you are considering
+        <strong>Tiny Hearts</strong> for your childcare needs.
+      </p>
+
+      <div class="info-box">
+        <h3>&#x1F504; What happens next?</h3>
+        <p>
+          One of our team members will review your request and get back to you
+          <strong>within 24 hours</strong> to confirm availability and arrange the
+          perfect care for your little ones.
+        </p>
+      </div>
+
+      <div class="details-box">
+        <h4>&#x1F4CB; Your Request Summary</h4>
+        <div class="detail-row">
+          <span class="detail-label">Children &amp; Ages</span>
+          <span class="detail-value">{{child_details}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Location</span>
+          <span class="detail-value">{{lodging}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Preferred Date</span>
+          <span class="detail-value">{{preferred_date}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Phone</span>
+          <span class="detail-value">{{phone}}</span>
+        </div>
+      </div>
+
+      <p class="paragraph">
+        If you need to make any changes or have urgent questions,
+        please don't hesitate to reach out to us directly.
+      </p>
+
+      <div class="divider"></div>
+
+      <div style="text-align: center;">
+        <p style="font-size: 14px; color: #2E8B9A; font-weight: 600; margin: 0 0 8px 0;">&#x1F4EC; Contact us anytime</p>
+        <div class="contact-row">
+          <div class="contact-item">
+            <div class="contact-icon">&#x1F4DE;</div>
+            <div class="contact-text">+506 62793218</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">&#x1F4E7;</div>
+            <div class="contact-text">tinyhearts0130@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&#x1F49B; Tiny Hearts &mdash; Caring for little hearts with love</p>
+      <p style="font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 4px;">
+        Mobile childcare throughout Costa Rica
+      </p>
+    </div>
+  </div>
+</body>
+</html>

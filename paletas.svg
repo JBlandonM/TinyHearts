@@ -1,0 +1,354 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1750" width="1400" height="1750">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#232c28" flood-opacity="0.08"/>
+    </filter>
+    <filter id="swatch-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1750" fill="#f0ece6"/>
+
+  <!-- Subtle decorative dots pattern -->
+  <g opacity="0.03">
+    <circle cx="100" cy="100" r="2" fill="#232c28"/>
+    <circle cx="200" cy="80" r="2" fill="#232c28"/>
+    <circle cx="1300" cy="100" r="2" fill="#232c28"/>
+    <circle cx="1200" cy="60" r="2" fill="#232c28"/>
+    <circle cx="100" cy="1700" r="2" fill="#232c28"/>
+    <circle cx="1300" cy="1700" r="2" fill="#232c28"/>
+  </g>
+
+  <!-- ===== HEADER ===== -->
+  <text x="700" y="75" text-anchor="middle" font-family="'Georgia','Times New Roman',serif" font-size="46" font-weight="700" fill="#232c28" letter-spacing="2">TINY HEARTS</text>
+  <text x="700" y="120" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="500" fill="#7a6b82" letter-spacing="4">PALETAS DE COLOR</text>
+  <line x1="350" y1="145" x2="1050" y2="145" stroke="#d4c8b8" stroke-width="1"/>
+
+  <!-- ===== PALETA 1: SOL Y MAR (ACTIVA) ===== -->
+  <g transform="translate(0, 0)">
+    <!-- Card background -->
+    <rect x="50" y="185" width="1300" height="290" rx="16" fill="#fdfbf7" filter="url(#shadow)"/>
+    <!-- Left accent bar -->
+    <rect x="50" y="185" width="8" height="290" rx="4" fill="#e56a54"/>
+
+    <!-- Divider line between info and swatches -->
+    <line x1="400" y1="210" x2="400" y2="450" stroke="#e8ddd0" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <!-- Left: Info -->
+    <text x="85" y="235" font-family="'Georgia','Times New Roman',serif" font-size="24" font-weight="700" fill="#232c28">1. Sol y Mar</text>
+    <!-- Badge -->
+    <rect x="85" y="250" width="90" height="24" rx="12" fill="#e56a54"/>
+    <text x="130" y="267" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">ACTUAL</text>
+    <text x="85" y="305" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#53645c">Cálida, orgánica y acogedora.</text>
+    <text x="85" y="323" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#53645c">La paleta activa del brand.</text>
+
+    <!-- Accent circles -->
+    <circle cx="97" cy="370" r="22" fill="#e56a54" filter="url(#swatch-shadow)"/>
+    <circle cx="155" cy="370" r="22" fill="#5f856c" filter="url(#swatch-shadow)"/>
+    <circle cx="213" cy="370" r="22" fill="#f5af42" filter="url(#swatch-shadow)"/>
+    <circle cx="271" cy="370" r="22" fill="#7bb5cc" filter="url(#swatch-shadow)"/>
+
+    <!-- Right: Color Swatches -->
+    <text x="430" y="232" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#232c28">Sistema de Colores</text>
+
+    <!-- Row 1: bg-primary, bg-secondary, text-dark, text-muted, color-coral, color-coral-hover, color-coral-light -->
+    <!-- bg-primary -->
+    <rect x="430" y="248" width="105" height="65" rx="8" fill="#fdfbf7" stroke="#e0d5c5" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="482" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--bg-primary</text>
+    <text x="482" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#fdfbf7</text>
+
+    <!-- bg-secondary -->
+    <rect x="545" y="248" width="105" height="65" rx="8" fill="#f6efe2" stroke="#e0d5c5" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--bg-secondary</text>
+    <text x="597" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#f6efe2</text>
+
+    <!-- text-dark -->
+    <rect x="660" y="248" width="105" height="65" rx="8" fill="#232c28" filter="url(#swatch-shadow)"/>
+    <text x="712" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--text-dark</text>
+    <text x="712" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#232c28</text>
+
+    <!-- text-muted -->
+    <rect x="775" y="248" width="105" height="65" rx="8" fill="#53645c" filter="url(#swatch-shadow)"/>
+    <text x="827" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--text-muted</text>
+    <text x="827" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#53645c</text>
+
+    <!-- color-coral -->
+    <rect x="890" y="248" width="105" height="65" rx="8" fill="#e56a54" filter="url(#swatch-shadow)"/>
+    <text x="942" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--color-coral</text>
+    <text x="942" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#e56a54</text>
+
+    <!-- color-coral-hover -->
+    <rect x="1005" y="248" width="105" height="65" rx="8" fill="#cd543f" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--coral-hover</text>
+    <text x="1057" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#cd543f</text>
+
+    <!-- color-coral-light -->
+    <rect x="1120" y="248" width="105" height="65" rx="8" fill="rgba(229,106,84,0.1)" stroke="#e0d5c5" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1172" y="328" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--coral-light</text>
+    <text x="1172" y="342" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">rgba(229,106,84,0.1)</text>
+
+    <!-- Row 2: color-sage, color-sage-light, color-amber, color-amber-light, color-sky, color-sky-light -->
+    <!-- color-sage -->
+    <rect x="430" y="360" width="105" height="65" rx="8" fill="#5f856c" filter="url(#swatch-shadow)"/>
+    <text x="482" y="440" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--color-sage</text>
+    <text x="482" y="454" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#5f856c</text>
+
+    <!-- color-sage-light -->
+    <rect x="545" y="360" width="105" height="65" rx="8" fill="#eef4f0" stroke="#e0d5c5" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="440" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--sage-light</text>
+    <text x="597" y="454" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#eef4f0</text>
+
+    <!-- color-amber -->
+    <rect x="660" y="360" width="105" height="65" rx="8" fill="#f5af42" filter="url(#swatch-shadow)"/>
+    <text x="712" y="440" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--color-amber</text>
+    <text x="712" y="454" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#f5af42</text>
+
+    <!-- color-amber-light -->
+    <rect x="775" y="360" width="105" height="65" rx="8" fill="#fef6e7" stroke="#e0d5c5" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="827" y="440" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--amber-light</text>
+    <text x="827" y="454" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#fef6e7</text>
+
+    <!-- color-sky -->
+    <rect x="890" y="360" width="105" height="65" rx="8" fill="#7bb5cc" filter="url(#swatch-shadow)"/>
+    <text x="942" y="440" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--color-sky</text>
+    <text x="942" y="454" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#7bb5cc</text>
+
+    <!-- color-sky-light -->
+    <rect x="1005" y="360" width="105" height="65" rx="8" fill="#edf6f9" stroke="#e0d5c5" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="440" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#53645c">--sky-light</text>
+    <text x="1057" y="454" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#8a7a6a">#edf6f9</text>
+  </g>
+
+  <!-- ===== PALETA 2: BRISA COSTERA ===== -->
+  <g transform="translate(0, 0)">
+    <rect x="50" y="515" width="1300" height="290" rx="16" fill="#f4f8fb" filter="url(#shadow)"/>
+    <rect x="50" y="515" width="8" height="290" rx="4" fill="#3a9bc7"/>
+
+    <line x1="400" y1="540" x2="400" y2="780" stroke="#c8d8e8" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <text x="85" y="565" font-family="'Georgia','Times New Roman',serif" font-size="24" font-weight="700" fill="#1a2a3a">2. Brisa Costera</text>
+    <!-- Badge -->
+    <rect x="85" y="580" width="110" height="24" rx="12" fill="#3a9bc7"/>
+    <text x="140" y="597" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">ALTERNATIVA</text>
+    <text x="85" y="635" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#5a7a8a">Fresca y costera. Inspirada en</text>
+    <text x="85" y="653" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#5a7a8a">las playas del Pacífico de CR.</text>
+
+    <circle cx="97" cy="700" r="22" fill="#3a9bc7" filter="url(#swatch-shadow)"/>
+    <circle cx="155" cy="700" r="22" fill="#6db89a" filter="url(#swatch-shadow)"/>
+    <circle cx="213" cy="700" r="22" fill="#f0c87a" filter="url(#swatch-shadow)"/>
+    <circle cx="271" cy="700" r="22" fill="#b8cbd8" filter="url(#swatch-shadow)"/>
+
+    <text x="430" y="562" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1a2a3a">Sistema de Colores</text>
+
+    <!-- Row 1 -->
+    <rect x="430" y="578" width="105" height="65" rx="8" fill="#f4f8fb" stroke="#c8d8e8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="482" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--bg-primary</text>
+    <text x="482" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#f4f8fb</text>
+
+    <rect x="545" y="578" width="105" height="65" rx="8" fill="#e8f1f8" stroke="#c8d8e8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--bg-secondary</text>
+    <text x="597" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#e8f1f8</text>
+
+    <rect x="660" y="578" width="105" height="65" rx="8" fill="#1a2a3a" filter="url(#swatch-shadow)"/>
+    <text x="712" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--text-dark</text>
+    <text x="712" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#1a2a3a</text>
+
+    <rect x="775" y="578" width="105" height="65" rx="8" fill="#5a7a8a" filter="url(#swatch-shadow)"/>
+    <text x="827" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--text-muted</text>
+    <text x="827" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#5a7a8a</text>
+
+    <rect x="890" y="578" width="105" height="65" rx="8" fill="#3a9bc7" filter="url(#swatch-shadow)"/>
+    <text x="942" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--color-coral</text>
+    <text x="942" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#3a9bc7</text>
+
+    <rect x="1005" y="578" width="105" height="65" rx="8" fill="#2a7fa8" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--coral-hover</text>
+    <text x="1057" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#2a7fa8</text>
+
+    <rect x="1120" y="578" width="105" height="65" rx="8" fill="rgba(58,155,199,0.1)" stroke="#c8d8e8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1172" y="658" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--coral-light</text>
+    <text x="1172" y="672" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">rgba(58,155,199,0.1)</text>
+
+    <!-- Row 2 -->
+    <rect x="430" y="690" width="105" height="65" rx="8" fill="#6db89a" filter="url(#swatch-shadow)"/>
+    <text x="482" y="770" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--color-sage</text>
+    <text x="482" y="784" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#6db89a</text>
+
+    <rect x="545" y="690" width="105" height="65" rx="8" fill="#eaf5f0" stroke="#c8d8e8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="770" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--sage-light</text>
+    <text x="597" y="784" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#eaf5f0</text>
+
+    <rect x="660" y="690" width="105" height="65" rx="8" fill="#f0c87a" filter="url(#swatch-shadow)"/>
+    <text x="712" y="770" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--color-amber</text>
+    <text x="712" y="784" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#f0c87a</text>
+
+    <rect x="775" y="690" width="105" height="65" rx="8" fill="#fef7e8" stroke="#c8d8e8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="827" y="770" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--amber-light</text>
+    <text x="827" y="784" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#fef7e8</text>
+
+    <rect x="890" y="690" width="105" height="65" rx="8" fill="#b8cbd8" filter="url(#swatch-shadow)"/>
+    <text x="942" y="770" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--color-sky</text>
+    <text x="942" y="784" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#b8cbd8</text>
+
+    <rect x="1005" y="690" width="105" height="65" rx="8" fill="#f0f4f8" stroke="#c8d8e8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="770" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">--sky-light</text>
+    <text x="1057" y="784" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a7a8a">#f0f4f8</text>
+  </g>
+
+  <!-- ===== PALETA 3: DULCE INFANTIL ===== -->
+  <g transform="translate(0, 0)">
+    <rect x="50" y="845" width="1300" height="290" rx="16" fill="#fdfaff" filter="url(#shadow)"/>
+    <rect x="50" y="845" width="8" height="290" rx="4" fill="#e887a8"/>
+
+    <line x1="400" y1="870" x2="400" y2="1110" stroke="#e0d5e8" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <text x="85" y="895" font-family="'Georgia','Times New Roman',serif" font-size="24" font-weight="700" fill="#2d2533">3. Dulce Infantil</text>
+    <rect x="85" y="910" width="110" height="24" rx="12" fill="#e887a8"/>
+    <text x="140" y="927" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">ALTERNATIVA</text>
+    <text x="85" y="965" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#7a6b82">Suave y tierna. Pasteles que</text>
+    <text x="85" y="983" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#7a6b82">transmiten calma y dulzura.</text>
+
+    <circle cx="97" cy="1030" r="22" fill="#e887a8" filter="url(#swatch-shadow)"/>
+    <circle cx="155" cy="1030" r="22" fill="#a8d8c8" filter="url(#swatch-shadow)"/>
+    <circle cx="213" cy="1030" r="22" fill="#f0d5e8" filter="url(#swatch-shadow)"/>
+    <circle cx="271" cy="1030" r="22" fill="#b8a8d8" filter="url(#swatch-shadow)"/>
+
+    <text x="430" y="892" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#2d2533">Sistema de Colores</text>
+
+    <!-- Row 1 -->
+    <rect x="430" y="908" width="105" height="65" rx="8" fill="#fdfaff" stroke="#d5c8e0" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="482" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--bg-primary</text>
+    <text x="482" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#fdfaff</text>
+
+    <rect x="545" y="908" width="105" height="65" rx="8" fill="#f7f2fa" stroke="#d5c8e0" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--bg-secondary</text>
+    <text x="597" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#f7f2fa</text>
+
+    <rect x="660" y="908" width="105" height="65" rx="8" fill="#2d2533" filter="url(#swatch-shadow)"/>
+    <text x="712" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--text-dark</text>
+    <text x="712" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#2d2533</text>
+
+    <rect x="775" y="908" width="105" height="65" rx="8" fill="#7a6b82" filter="url(#swatch-shadow)"/>
+    <text x="827" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--text-muted</text>
+    <text x="827" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#7a6b82</text>
+
+    <rect x="890" y="908" width="105" height="65" rx="8" fill="#e887a8" filter="url(#swatch-shadow)"/>
+    <text x="942" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--color-coral</text>
+    <text x="942" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#e887a8</text>
+
+    <rect x="1005" y="908" width="105" height="65" rx="8" fill="#d46a8e" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--coral-hover</text>
+    <text x="1057" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#d46a8e</text>
+
+    <rect x="1120" y="908" width="105" height="65" rx="8" fill="rgba(232,135,168,0.1)" stroke="#d5c8e0" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1172" y="988" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--coral-light</text>
+    <text x="1172" y="1002" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">rgba(232,135,168,0.1)</text>
+
+    <!-- Row 2 -->
+    <rect x="430" y="1020" width="105" height="65" rx="8" fill="#a8d8c8" filter="url(#swatch-shadow)"/>
+    <text x="482" y="1100" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--color-sage</text>
+    <text x="482" y="1114" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#a8d8c8</text>
+
+    <rect x="545" y="1020" width="105" height="65" rx="8" fill="#eef8f4" stroke="#d5c8e0" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="1100" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--sage-light</text>
+    <text x="597" y="1114" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#eef8f4</text>
+
+    <rect x="660" y="1020" width="105" height="65" rx="8" fill="#f0d5e8" filter="url(#swatch-shadow)"/>
+    <text x="712" y="1100" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--color-amber</text>
+    <text x="712" y="1114" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#f0d5e8</text>
+
+    <rect x="775" y="1020" width="105" height="65" rx="8" fill="#fdf5fa" stroke="#d5c8e0" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="827" y="1100" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--amber-light</text>
+    <text x="827" y="1114" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#fdf5fa</text>
+
+    <rect x="890" y="1020" width="105" height="65" rx="8" fill="#b8a8d8" filter="url(#swatch-shadow)"/>
+    <text x="942" y="1100" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--color-sky</text>
+    <text x="942" y="1114" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#b8a8d8</text>
+
+    <rect x="1005" y="1020" width="105" height="65" rx="8" fill="#f3eef9" stroke="#d5c8e0" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="1100" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">--sky-light</text>
+    <text x="1057" y="1114" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#7a6b82">#f3eef9</text>
+  </g>
+
+  <!-- ===== PALETA 4: PARAÍSO NATURAL ===== -->
+  <g transform="translate(0, 0)">
+    <rect x="50" y="1175" width="1300" height="290" rx="16" fill="#faf8f5" filter="url(#shadow)"/>
+    <rect x="50" y="1175" width="8" height="290" rx="4" fill="#4a7c59"/>
+
+    <line x1="400" y1="1200" x2="400" y2="1440" stroke="#d8d0c0" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <text x="85" y="1225" font-family="'Georgia','Times New Roman',serif" font-size="24" font-weight="700" fill="#1e2820">4. Paraíso Natural</text>
+    <rect x="85" y="1240" width="110" height="24" rx="12" fill="#4a7c59"/>
+    <text x="140" y="1257" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">ALTERNATIVA</text>
+    <text x="85" y="1295" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#5a6650">Terrosa y natural. Verde bosque</text>
+    <text x="85" y="1313" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#5a6650">y terracota de la naturaleza CR.</text>
+
+    <circle cx="97" cy="1360" r="22" fill="#4a7c59" filter="url(#swatch-shadow)"/>
+    <circle cx="155" cy="1360" r="22" fill="#c48a5a" filter="url(#swatch-shadow)"/>
+    <circle cx="213" cy="1360" r="22" fill="#d4b06a" filter="url(#swatch-shadow)"/>
+    <circle cx="271" cy="1360" r="22" fill="#8a9a7a" filter="url(#swatch-shadow)"/>
+
+    <text x="430" y="1222" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1e2820">Sistema de Colores</text>
+
+    <!-- Row 1 -->
+    <rect x="430" y="1238" width="105" height="65" rx="8" fill="#faf8f5" stroke="#d0c8b8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="482" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--bg-primary</text>
+    <text x="482" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#faf8f5</text>
+
+    <rect x="545" y="1238" width="105" height="65" rx="8" fill="#efeae2" stroke="#d0c8b8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--bg-secondary</text>
+    <text x="597" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#efeae2</text>
+
+    <rect x="660" y="1238" width="105" height="65" rx="8" fill="#1e2820" filter="url(#swatch-shadow)"/>
+    <text x="712" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--text-dark</text>
+    <text x="712" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#1e2820</text>
+
+    <rect x="775" y="1238" width="105" height="65" rx="8" fill="#5a6650" filter="url(#swatch-shadow)"/>
+    <text x="827" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--text-muted</text>
+    <text x="827" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#5a6650</text>
+
+    <rect x="890" y="1238" width="105" height="65" rx="8" fill="#4a7c59" filter="url(#swatch-shadow)"/>
+    <text x="942" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--color-coral</text>
+    <text x="942" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#4a7c59</text>
+
+    <rect x="1005" y="1238" width="105" height="65" rx="8" fill="#3a6648" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--coral-hover</text>
+    <text x="1057" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#3a6648</text>
+
+    <rect x="1120" y="1238" width="105" height="65" rx="8" fill="rgba(74,124,89,0.1)" stroke="#d0c8b8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1172" y="1318" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--coral-light</text>
+    <text x="1172" y="1332" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">rgba(74,124,89,0.1)</text>
+
+    <!-- Row 2 -->
+    <rect x="430" y="1350" width="105" height="65" rx="8" fill="#c48a5a" filter="url(#swatch-shadow)"/>
+    <text x="482" y="1430" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--color-sage</text>
+    <text x="482" y="1444" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#c48a5a</text>
+
+    <rect x="545" y="1350" width="105" height="65" rx="8" fill="#f6ede4" stroke="#d0c8b8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="597" y="1430" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--sage-light</text>
+    <text x="597" y="1444" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#f6ede4</text>
+
+    <rect x="660" y="1350" width="105" height="65" rx="8" fill="#d4b06a" filter="url(#swatch-shadow)"/>
+    <text x="712" y="1430" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--color-amber</text>
+    <text x="712" y="1444" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#d4b06a</text>
+
+    <rect x="775" y="1350" width="105" height="65" rx="8" fill="#f8f2e6" stroke="#d0c8b8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="827" y="1430" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--amber-light</text>
+    <text x="827" y="1444" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#f8f2e6</text>
+
+    <rect x="890" y="1350" width="105" height="65" rx="8" fill="#8a9a7a" filter="url(#swatch-shadow)"/>
+    <text x="942" y="1430" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--color-sky</text>
+    <text x="942" y="1444" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#8a9a7a</text>
+
+    <rect x="1005" y="1350" width="105" height="65" rx="8" fill="#edf0e8" stroke="#d0c8b8" stroke-width="1" filter="url(#swatch-shadow)"/>
+    <text x="1057" y="1430" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">--sky-light</text>
+    <text x="1057" y="1444" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" fill="#5a6650">#edf0e8</text>
+  </g>
+
+  <!-- ===== FOOTER ===== -->
+  <text x="700" y="1560" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" fill="#a89888" letter-spacing="3">TINY HEARTS — BABYSITTING COSTA RICA</text>
+
+
+</svg>
