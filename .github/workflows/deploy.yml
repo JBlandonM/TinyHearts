@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install minification tools
-        run: npm install -g html-minifier csso terser
-
       - name: Prepare output directory
         run: mkdir -p dist
 
@@ -32,13 +29,13 @@ jobs:
           cp -r email-templates dist/ 2>/dev/null || true
 
       - name: Minify HTML
-        run: for f in dist/*.html; do html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true "$f" -o "$f"; done
+        run: for f in dist/*.html; do npx --yes html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true "$f" -o "$f"; done
 
       - name: Minify CSS
-        run: csso dist/style.css -o dist/style.css
+        run: npx --yes csso dist/style.css -o dist/style.css
 
       - name: Minify JS
-        run: terser dist/main.js -o dist/main.js -m -c
+        run: npx --yes terser dist/main.js -o dist/main.js -m -c
 
       - name: Disable Jekyll
         run: touch dist/.nojekyll
