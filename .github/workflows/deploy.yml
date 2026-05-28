@@ -19,7 +19,9 @@ jobs:
           node-version: 20
 
       - name: Install minification tools
-        run: npm install html-minifier csso terser
+        run: |
+          npm init -y
+          npm install html-minifier csso terser
 
       - name: Prepare output directory
         run: mkdir -p dist
