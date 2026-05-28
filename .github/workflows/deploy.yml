@@ -28,13 +28,28 @@ jobs:
           cp robots.txt sitemap.xml paletas.svg dist/
           cp -r email-templates dist/ 2>/dev/null || true
 
-      - name: Install tools & Minify all
+      - name: Install & Minify
         run: |
           npm init -y
           npm install html-minifier csso terser
-          for f in dist/*.html; do ./node_modules/.bin/html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true "$f" -o "$f"; done
-          ./node_modules/.bin/csso dist/style.css -o dist/style.css
-          ./node_modules/.bin/terser dist/main.js -o dist/main.js -m -c
+          node -e "
+            const fs = require('fs');
+            const minify = require('html-minifier').minify;
+            const csso = require('csso');
+            (async()=>{
+              // CSS
+              fs.writeFileSync('dist/style.css', csso.minify(fs.readFileSync('dist/style.css','utf8')).css);
+              // HTML
+              fs.readdirSync('dist').filter(f=>f.endsWith('.html')).forEach(f => {
+                fs.writeFileSync('dist/'+f, minify(fs.readFileSync('dist/'+f,'utf8'),
+                  {collapseWhitespace:true,removeComments:true,minifyCSS:true,minifyJS:true}));
+              });
+              // JS
+              const r = await require('terser').minify(
+                fs.readFileSync('dist/main.js','utf8'),{compress:true,mangle:true});
+              fs.writeFileSync('dist/main.js', r.code);
+            })().catch(e=>{console.error(e);process.exit(1)});
+          "
 
       - name: Disable Jekyll
         run: touch dist/.nojekyll
