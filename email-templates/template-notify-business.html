@@ -4,11 +4,13 @@
 <head>
   <meta charset="utf-8">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #FEF9F0;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #fdfbf7;
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
     }
 
     .container {
@@ -21,7 +23,7 @@
     }
 
     .header {
-      background: linear-gradient(135deg, #FF8C42 0%, #FFD700 100%);
+      background: linear-gradient(135deg, #e56a54 0%, #f5af42 100%);
       padding: 32px 24px;
       text-align: center;
     }
@@ -31,6 +33,7 @@
       font-size: 24px;
       margin: 0;
       font-weight: 700;
+      font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif;
     }
 
     .header p {
@@ -49,8 +52,9 @@
 
     .field-label {
       font-size: 12px;
-      color: #2E8B9A;
+      color: #e56a54;
       font-weight: 700;
+      font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 4px;
@@ -58,11 +62,11 @@
 
     .field-value {
       font-size: 15px;
-      color: #2D3436;
-      background-color: #FEF9F0;
+      color: #232c28;
+      background-color: #fdfbf7;
       padding: 10px 14px;
       border-radius: 8px;
-      border-left: 4px solid #FF8C42;
+      border-left: 4px solid #e56a54;
     }
 
     .field-value.message {
@@ -71,34 +75,39 @@
 
     .divider {
       height: 1px;
-      background: linear-gradient(90deg, #FF8C42, #2E8B9A);
+      background: linear-gradient(90deg, #e56a54, #5f856c);
       margin: 24px 0;
       opacity: 0.3;
     }
 
     .footer {
-      background-color: #E0F4F5;
+      background-color: #eef4f0;
       padding: 20px 24px;
       text-align: center;
     }
 
     .footer p {
-      color: #2E8B9A;
+      color: #5f856c;
       font-size: 13px;
       margin: 0;
     }
 
     .badge {
       display: inline-block;
-      background-color: #FF8C42;
+      background-color: #e56a54;
       color: #FFFFFF;
       font-size: 11px;
       font-weight: 700;
+      font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif;
       padding: 4px 12px;
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 12px;
+    }
+
+    .badge-sage {
+      background-color: #5f856c;
     }
   </style>
 </head>
@@ -135,7 +144,7 @@
 
       <div class="divider"></div>
 
-      <div class="badge" style="background-color: #2E8B9A;">&#x1F3D4;&#xFE0F; Booking Details</div>
+      <div class="badge badge-sage">&#x1F3D4;&#xFE0F; Booking Details</div>
 
       <div class="field">
         <div class="field-label">Staying Location</div>
@@ -155,7 +164,7 @@
 
     <div class="footer">
       <p>&#x1F31E; Tiny Hearts &mdash; Caring for little hearts with love</p>
-      <p style="font-size: 11px; color: #5DA9B8; margin-top: 4px;">tinyhearts0130@gmail.com | +506 62793218</p>
+      <p style="font-size: 11px; color: #53645c; margin-top: 4px;">tinyhearts0130@gmail.com | +506 62793218</p>
     </div>
   </div>
 </body>
