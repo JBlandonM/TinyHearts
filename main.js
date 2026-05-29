@@ -9,10 +9,10 @@
  */
 const CONFIG = {
   // --- EmailJS ---
-  EMAILJS_PUBLIC_KEY: 'ocEUMfpfn5vd21Yiw',
-  SERVICE_ID: 'service_1u09odc',
-  TEMPLATE_NOTIFY: 'template_aufy52e',
-  TEMPLATE_CONFIRM: 'template_47swull',
+  EMAILJS_PUBLIC_KEY: 'XfR_yXozW3Ta-AT5R',
+  SERVICE_ID: 'service_8cg7sga',
+  TEMPLATE_NOTIFY: 'template_ur6y004',
+  TEMPLATE_CONFIRM: 'template_51j4zg8',
 
   // --- Slider (ms) ---
   SLIDER_INTERVAL: 8000,
