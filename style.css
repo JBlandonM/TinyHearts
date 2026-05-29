@@ -545,7 +545,7 @@ p {
    NAVIGATION HEADER
    ========================================================================== */
 .site-header {
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -792,7 +792,7 @@ p {
    ========================================================================== */
 .hero {
   position: relative;
-  padding-top: clamp(8rem, 15vh, 12rem);
+  padding-top: clamp(5rem, 10vh, 8rem);
   padding-bottom: var(--space-lg);
   background-color: var(--bg-primary);
 }

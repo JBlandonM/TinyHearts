@@ -15,8 +15,8 @@
   <meta name="author" content="Tiny Hearts 0130">
   <meta name="theme-color" content="#e56a54">
 
-  <!-- Google Search Console verification — set when the custom domain is ready -->
-  <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE"> -->
+  <!-- Google Search Console verification — replace with your code when the custom domain is ready -->
+  <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -24,8 +24,7 @@
   <meta property="og:title" content="Tiny Hearts 0130 | Premium Mobile Childcare & Babysitting Costa Rica">
   <meta property="og:description"
     content="Certified, safe, and loving mobile childcare service traveling to your hotel or home anywhere in Costa Rica.">
-  <!-- TODO: Replace og-image.png with your actual social preview image (recommended: 1200x630px) -->
-  <meta property="og:image" content="https://jblandonm.github.io/TinyHearts/og-image.png">
+  <meta property="og:image" content="https://jblandonm.github.io/TinyHearts/og-image.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -33,18 +32,21 @@
   <meta property="twitter:title" content="Tiny Hearts 0130 | Premium Mobile Childcare & Babysitting Costa Rica">
   <meta property="twitter:description"
     content="Certified, safe, and loving mobile childcare service traveling to your hotel or home anywhere in Costa Rica.">
-  <meta property="twitter:image" content="https://jblandonm.github.io/TinyHearts/og-image.png">
+  <meta property="twitter:image" content="https://jblandonm.github.io/TinyHearts/og-image.jpg">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://jblandonm.github.io/TinyHearts/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32"
+  <link rel="icon" type="image/svg+xml" sizes="32x32"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e56a54' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
 
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- DNS Prefetch for third-party services -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css">
@@ -55,7 +57,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Tiny Hearts 0130",
-    "image": "https://jblandonm.github.io/TinyHearts/og-image.png",
+    "image": "https://jblandonm.github.io/TinyHearts/og-image.jpg",
     "@id": "https://jblandonm.github.io/TinyHearts/#tiny-hearts-babysitting",
     "url": "https://jblandonm.github.io/TinyHearts/",
     "telephone": "+50662793218",
@@ -66,9 +68,13 @@
       "name": "Costa Rica"
     },
     "description": "Premium, mobile childcare services designed to meet the unique needs of traveling and local families throughout Costa Rica. We travel directly to your hotel, vacation rental, or home.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CR"
+    },
     "sameAs": [
-      "https://www.facebook.com/tinyhearts",
-      "https://www.instagram.com/tinyhearts"
+      "https://www.facebook.com/share/1926kYPTtJ/?mibextid=wwXIfr",
+      "https://www.instagram.com/tinyhearts0130"
     ]
   }
   </script>
@@ -135,6 +141,12 @@
     "areaServed": {
       "@type": "Country",
       "name": "Costa Rica"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "15.00",
+      "priceCurrency": "USD",
+      "description": "Starting at $15/hour per child, minimum 4 hours"
     }
   }
   </script>
@@ -153,8 +165,72 @@
     "areaServed": {
       "@type": "Country",
       "name": "Costa Rica"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "15.00",
+      "priceCurrency": "USD",
+      "description": "Starting at $15/hour per child, minimum 4 hours"
     }
   }
+  </script>
+
+  <!-- Review Schema: Testimonials -->
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "LocalBusiness",
+      "@id": "https://jblandonm.github.io/TinyHearts/#tiny-hearts-babysitting"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": 5,
+      "bestRating": 5
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Maria Valenzuela"
+    },
+    "reviewBody": "Leaving my children in a foreign country while attending a wedding was stressful, but Tiny Hearts 0130 was absolutely incredible. They came straight to our hotel room, and the kids had a blast doing educational crafts. Recommended 100%!"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "LocalBusiness",
+      "@id": "https://jblandonm.github.io/TinyHearts/#tiny-hearts-babysitting"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": 5,
+      "bestRating": 5
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Juan Pablo Gómez"
+    },
+    "reviewBody": "Exceptional punctuality and outstanding care. The babysitter traveled to our rental home in San José and entertained our two kids with musical and reading games. Professional excellence indeed!"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "LocalBusiness",
+      "@id": "https://jblandonm.github.io/TinyHearts/#tiny-hearts-babysitting"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": 5,
+      "bestRating": 5
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Camila Larenas"
+    },
+    "reviewBody": "Having a certified caregiver who was CPR-certified was my number one priority. Our caregiver from Tiny Hearts 0130 was not only certified but incredibly sweet, warm, and prepared fun drawing games. Excellent service!"
+  }]
   </script>
 
   <!-- Product Schema: Pricing Plans -->
@@ -280,8 +356,8 @@
             <span class="badge-dot" aria-hidden="true"></span>
             <span>Mobile Care in Costa Rica</span>
           </div>
-          <h1 class="hero-title"><span class="text-gradient">Professional care</span> that comes to you</h1>
-          <p class="hero-description">At Tiny Hearts 0130, we provide exceptional, mobile childcare services. Whether you are
+          <h1 class="hero-title">Tiny Hearts 0130 <span class="text-gradient">Professional Mobile Childcare</span> <span style="color: var(--color-sage);">That Comes to You in Costa Rica</span></h1>
+          <p class="hero-description" style="color: var(--text-muted);">At Tiny Hearts 0130, we provide exceptional, mobile childcare services. Whether you are
             on vacation or at home, our certified experts ensure your children thrive in a safe, loving environment.</p>
           <div class="hero-btns">
             <a href="#booking" class="btn btn-primary">Book Your Caregiver</a>
@@ -1082,13 +1158,13 @@
           <p>Providing safe, loving, and nurturing mobile childcare for families throughout beautiful Costa Rica.</p>
           <div class="social-links">
             <a href="https://www.facebook.com/share/1926kYPTtJ/?mibextid=wwXIfr" class="social-link"
-              aria-label="Follow us on Facebook" target="_blank" rel="noopener">
+              aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3h-4V6.5c0-.8.7-1.5 1.5-1.5h2.5V2H13c-2.8 0-5 2.2-5 5V8z" />
               </svg>
             </a>
             <a href="https://www.instagram.com/tinyhearts0130?igsh=aTg3NXlvM2Mwenlu&utm_source=qr" class="social-link"
-              aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+              aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.64-.07 4.85-.07M12 2C8.74 2 8.33 2.01 7.05 2.07c-4.27.2-6.66 2.59-6.86 6.86C.12 8.21.1 8.63.1 11.88s.02 3.67.08 4.95c.2 4.27 2.59 6.66 6.86 6.86 1.28.06 1.68.08 4.95.08s3.67-.02 4.95-.08c4.27-.2 6.66-2.59 6.86-6.86.06-1.28.08-1.68.08-4.95s-.02-3.67-.08-4.95c-.2-4.27-2.59-6.66-6.86-6.86C15.67 2.01 15.26 2 12 2zm0 4.8c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.2c-1.77 0-3.2-1.43-3.2-3.2s1.43-3.2 3.2-3.2 3.2 1.43 3.2 3.2-1.43 3.2-3.2 3.2zm6.4-9.3c-.64 0-1.16.52-1.16 1.16s.52 1.16 1.16 1.16 1.16-.52 1.16-1.16-.52-1.16-1.16-1.16z" />
@@ -1152,7 +1228,7 @@
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 6v6l4 2" />
               </svg>
-              <span>Mon - Fri: 7:00 AM - 6:00 PM</span>
+              <span>Flexible — We adapt to your schedule</span>
             </div>
           </div>
         </div>
