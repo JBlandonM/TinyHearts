@@ -3,30 +3,32 @@
 <head>
   <meta charset="utf-8">
   <style>
-    body { margin: 0; padding: 0; background-color: #FEF9F0; font-family: 'Segoe UI', Arial, sans-serif; }
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    body { margin: 0; padding: 0; background-color: #fdfbf7; font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif; }
     .container { max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-    .header { background: linear-gradient(135deg, #2E8B9A 0%, #5DA9B8 100%); padding: 32px 24px; text-align: center; }
-    .header h1 { color: #FFFFFF; font-size: 24px; margin: 0; font-weight: 700; }
+    .header { background: linear-gradient(135deg, #e56a54 0%, #f5af42 100%); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #FFFFFF; font-size: 24px; margin: 0; font-weight: 700; font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif; }
     .header p { color: rgba(255,255,255,0.9); font-size: 14px; margin: 8px 0 0 0; }
     .body { padding: 32px 24px; }
     .hero-emoji { text-align: center; font-size: 48px; margin-bottom: 16px; }
-    .greeting { font-size: 20px; color: #2D3436; font-weight: 700; margin-bottom: 8px; text-align: center; }
-    .paragraph { font-size: 15px; color: #636E72; line-height: 1.7; margin-bottom: 16px; text-align: center; }
-    .info-box { background: linear-gradient(135deg, #FEF9F0 0%, #E0F4F5 100%); border-radius: 12px; padding: 20px; margin: 24px 0; border: 1px solid #5DA9B8; }
-    .info-box h3 { color: #2E8B9A; font-size: 16px; margin: 0 0 8px 0; text-align: center; }
-    .info-box p { color: #636E72; font-size: 14px; line-height: 1.6; margin: 0; text-align: center; }
-    .details-box { background-color: #FFFFFF; border: 2px dashed #FF8C42; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
-    .details-box h4 { color: #FF8C42; font-size: 13px; margin: 0 0 12px 0; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
-    .detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #F0EDE6; font-size: 14px; }
+    .greeting { font-size: 20px; color: #232c28; font-weight: 700; margin-bottom: 8px; text-align: center; font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif; }
+    .paragraph { font-size: 15px; color: #53645c; line-height: 1.7; margin-bottom: 16px; text-align: center; }
+    .info-box { background: linear-gradient(135deg, #fdfbf7 0%, #eef4f0 100%); border-radius: 12px; padding: 20px; margin: 24px 0; border: 1px solid #e56a54; }
+    .info-box h3 { color: #e56a54; font-size: 16px; margin: 0 0 8px 0; text-align: center; font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif; }
+    .info-box p { color: #53645c; font-size: 14px; line-height: 1.6; margin: 0; text-align: center; }
+    .details-box { background-color: #FFFFFF; border: 2px dashed #e56a54; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+    .details-box h4 { color: #e56a54; font-size: 13px; margin: 0 0 12px 0; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Outfit', 'Trebuchet MS', Arial, sans-serif; }
+    .detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f0ede6; font-size: 14px; }
     .detail-row:last-child { border-bottom: none; }
-    .detail-label { color: #2E8B9A; font-weight: 600; }
-    .detail-value { color: #2D3436; text-align: right; }
-    .divider { height: 1px; background: linear-gradient(90deg, #FF8C42, #2E8B9A); margin: 24px 0; opacity: 0.3; }
+    .detail-label { color: #5f856c; font-weight: 600; }
+    .detail-value { color: #232c28; text-align: right; }
+    .divider { height: 1px; background: linear-gradient(90deg, #e56a54, #5f856c); margin: 24px 0; opacity: 0.3; }
     .contact-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
     .contact-item { text-align: center; }
     .contact-icon { font-size: 20px; }
-    .contact-text { font-size: 13px; color: #636E72; margin-top: 4px; }
-    .footer { background: linear-gradient(135deg, #FF8C42 0%, #FFD700 100%); padding: 20px 24px; text-align: center; }
+    .contact-text { font-size: 13px; color: #53645c; margin-top: 4px; }
+    .footer { background: linear-gradient(135deg, #5f856c 0%, #7bb5cc 100%); padding: 20px 24px; text-align: center; }
     .footer p { color: #FFFFFF; font-size: 13px; margin: 0; }
     .footer p a { color: #FFFFFF; font-weight: 700; }
   </style>
@@ -83,7 +85,7 @@
       <div class="divider"></div>
 
       <div style="text-align: center;">
-        <p style="font-size: 14px; color: #2E8B9A; font-weight: 600; margin: 0 0 8px 0;">&#x1F4EC; Contact us anytime</p>
+        <p style="font-size: 14px; color: #e56a54; font-weight: 600; margin: 0 0 8px 0;">&#x1F4EC; Contact us anytime</p>
         <div class="contact-row">
           <div class="contact-item">
             <div class="contact-icon">&#x1F4DE;</div>
