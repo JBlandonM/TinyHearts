@@ -30,6 +30,13 @@ const CONFIG = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Prevent smooth scroll animation during browser's initial scroll restoration + hash-navigation
+  document.documentElement.style.scrollBehavior = 'auto';
+  // Restore smooth only after ALL initial scrolling (hash nav, scroll restoration) is done
+  window.addEventListener('load', () => {
+    document.documentElement.style.scrollBehavior = '';
+  }, { once: true });
+
   initHeaderScroll();
   initMobileMenu();
   initScrollReveal();

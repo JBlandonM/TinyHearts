@@ -360,6 +360,9 @@
     }]
   }
   </script>
+
+  <!-- Prevent smooth-scroll animation on initial hash-navigation after reload -->
+  <script>document.documentElement.style.scrollBehavior='auto'</script>
 </head>
 
 <body>
@@ -385,11 +388,10 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="#about" class="nav-link">About Us</a></li>
-          <li><a href="#why-choose-us" class="nav-link">Why Choose Us</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#service-area" class="nav-link">Service Area</a></li>
           <li><a href="#pricing" class="nav-link">Rates</a></li>
-          <li><a href="#policies" class="nav-link">Policies</a></li>
+          <li><a href="#service-area" class="nav-link">Service Area</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#booking" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -413,11 +415,10 @@
     <nav aria-label="Mobile Navigation">
       <ul class="nav-mobile-menu">
         <li><a href="#about" class="nav-mobile-link">About Us</a></li>
-        <li><a href="#why-choose-us" class="nav-mobile-link">Why Choose Us</a></li>
         <li><a href="#services" class="nav-mobile-link">Services</a></li>
-        <li><a href="#service-area" class="nav-mobile-link">Service Area</a></li>
         <li><a href="#pricing" class="nav-mobile-link">Rates</a></li>
-        <li><a href="#policies" class="nav-mobile-link">Policies</a></li>
+        <li><a href="#service-area" class="nav-mobile-link">Service Area</a></li>
+        <li><a href="#faq" class="nav-mobile-link">FAQ</a></li>
         <li><a href="#booking" class="nav-mobile-link">Contact</a></li>
       </ul>
     </nav>
@@ -779,95 +780,6 @@
       </div>
     </section>
 
-    <!-- SERVICE AREA SECTION -->
-    <section class="section-padding" id="service-area" style="background-color: white; position: relative;">
-      <div class="container grid-2">
-        <div class="philosophy-media scroll-reveal">
-          <div class="philosophy-media-wrapper">
-            <div class="philosophy-badge"
-              style="background-color: var(--color-sage); color: white; transform: rotate(4deg);">
-              <h4 style="font-size: 1.5rem; font-weight: 800; line-height: 1.2;">Costa Rica</h4>
-              <p style="color: white; font-weight: 500; font-size: 0.85rem;">National Coverage</p>
-            </div>
-            <div class="philosophy-img">
-              <div class="hero-svg-fallback" aria-hidden="true"
-                style="aspect-ratio: 1.2; background: linear-gradient(135deg, #edf6f9 0%, #fdfbf7 100%); border-radius: 40px; border: 5px solid white;">
-                <svg viewBox="0 0 400 350" width="100%" height="100%">
-                  <!-- Custom abstract map shapes simulating Costa Rica coastlines -->
-                  <path d="M50,80 Q100,50 150,120 T250,150 T350,280" fill="none" stroke="var(--color-sky)"
-                    stroke-width="6" opacity="0.3" />
-                  <circle cx="150" cy="120" r="10" fill="var(--color-coral)" />
-                  <text x="170" y="125" font-family="var(--font-display)" font-weight="bold" fill="var(--text-dark)"
-                    font-size="14">Guanacaste</text>
-
-                  <circle cx="200" cy="180" r="10" fill="var(--color-coral)" />
-                  <text x="220" y="185" font-family="var(--font-display)" font-weight="bold" fill="var(--text-dark)"
-                    font-size="14">San José</text>
-
-                  <circle cx="280" cy="240" r="10" fill="var(--color-coral)" />
-                  <text x="300" y="245" font-family="var(--font-display)" font-weight="bold" fill="var(--text-dark)"
-                    font-size="14">Manuel Antonio</text>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="scroll-reveal" style="transition-delay: 0.1s;">
-          <span class="section-subtitle" style="color: var(--color-sage);">We Come to You</span>
-          <h2 class="section-title">Service Area: Costa Rica</h2>
-          <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.5rem;">At <strong>Tiny Hearts 0130</strong>,
-            we understand that families need ultimate flexibility while traveling or living in Costa Rica. That’s why we
-            bring our premium childcare services directly to your doorstep—wherever you are.</p>
-          <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Whether you are
-            staying at a beach resort in Guanacaste, a luxury rental in Manuel Antonio, or in the comfort of your own
-            home in the Central Valley, enjoy your time in beautiful Costa Rica knowing your little ones are in expert
-            hands.</p>
-
-          <!-- Destination-specific coverage for SEO -->
-          <div class="destinations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 2rem;">
-            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
-              <strong style="color: var(--text-dark); font-size: 0.9rem;">Guanacaste</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Tamarindo, Papagayo, Flamingo, Conchal</p>
-            </div>
-            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
-              <strong style="color: var(--text-dark); font-size: 0.9rem;">San Jos&eacute;</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Escaz&uacute;, Santa Ana, Rohrmoser</p>
-            </div>
-            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
-              <strong style="color: var(--text-dark); font-size: 0.9rem;">Manuel Antonio</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Quepos, jungle &amp; beach resorts</p>
-            </div>
-            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
-              <strong style="color: var(--text-dark); font-size: 0.9rem;">La Fortuna</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Arenal, hot springs, eco-lodges</p>
-            </div>
-            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
-              <strong style="color: var(--text-dark); font-size: 0.9rem;">Jac&oacute;</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Herradura, Los Sue&ntilde;os</p>
-            </div>
-            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
-              <strong style="color: var(--text-dark); font-size: 0.9rem;">Santa Teresa</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Mal Pa&iacute;s, surf towns</p>
-            </div>
-          </div>
-
-          <div
-            style="background-color: var(--color-sage-light); padding: 1.5rem; border-radius: 20px; border: 1px dashed var(--color-sage); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
-            <div style="font-size: 2.25rem; color: var(--color-sage);">🇨🇷</div>
-            <div>
-              <h4
-                style="font-family: var(--font-display); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.2rem; font-weight: 700;">
-                We travel to wherever you are in Costa Rica!</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">From private villas to luxury hotel chains.</p>
-            </div>
-          </div>
-
-          <a href="#booking" class="btn btn-secondary">Check Availability in Your Destination</a>
-        </div>
-      </div>
-    </section>
-
     <!-- CERTIFICATIONS BANNER -->
     <section class="section-padding"
       style="background-color: var(--color-coral); color: white; text-align: center; position: relative; z-index: 5;">
@@ -985,6 +897,95 @@
               style="width: 100%; border-color: var(--color-sky); color: var(--color-sky);">Book for 3 Children</a>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA SECTION -->
+    <section class="section-padding" id="service-area" style="background-color: white; position: relative;">
+      <div class="container grid-2">
+        <div class="philosophy-media scroll-reveal">
+          <div class="philosophy-media-wrapper">
+            <div class="philosophy-badge"
+              style="background-color: var(--color-sage); color: white; transform: rotate(4deg);">
+              <h4 style="font-size: 1.5rem; font-weight: 800; line-height: 1.2;">Costa Rica</h4>
+              <p style="color: white; font-weight: 500; font-size: 0.85rem;">National Coverage</p>
+            </div>
+            <div class="philosophy-img">
+              <div class="hero-svg-fallback" aria-hidden="true"
+                style="aspect-ratio: 1.2; background: linear-gradient(135deg, #edf6f9 0%, #fdfbf7 100%); border-radius: 40px; border: 5px solid white;">
+                <svg viewBox="0 0 400 350" width="100%" height="100%">
+                  <!-- Custom abstract map shapes simulating Costa Rica coastlines -->
+                  <path d="M50,80 Q100,50 150,120 T250,150 T350,280" fill="none" stroke="var(--color-sky)"
+                    stroke-width="6" opacity="0.3" />
+                  <circle cx="150" cy="120" r="10" fill="var(--color-coral)" />
+                  <text x="170" y="125" font-family="var(--font-display)" font-weight="bold" fill="var(--text-dark)"
+                    font-size="14">Guanacaste</text>
+
+                  <circle cx="200" cy="180" r="10" fill="var(--color-coral)" />
+                  <text x="220" y="185" font-family="var(--font-display)" font-weight="bold" fill="var(--text-dark)"
+                    font-size="14">San José</text>
+
+                  <circle cx="280" cy="240" r="10" fill="var(--color-coral)" />
+                  <text x="300" y="245" font-family="var(--font-display)" font-weight="bold" fill="var(--text-dark)"
+                    font-size="14">Manuel Antonio</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-reveal" style="transition-delay: 0.1s;">
+          <span class="section-subtitle" style="color: var(--color-sage);">We Come to You</span>
+          <h2 class="section-title">Service Area: Costa Rica</h2>
+          <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.5rem;">At <strong>Tiny Hearts 0130</strong>,
+            we understand that families need ultimate flexibility while traveling or living in Costa Rica. That's why we
+            bring our premium childcare services directly to your doorstep—wherever you are.</p>
+          <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Whether you are
+            staying at a beach resort in Guanacaste, a luxury rental in Manuel Antonio, or in the comfort of your own
+            home in the Central Valley, enjoy your time in beautiful Costa Rica knowing your little ones are in expert
+            hands.</p>
+
+          <!-- Destination-specific coverage for SEO -->
+          <div class="destinations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 2rem;">
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">Guanacaste</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Tamarindo, Papagayo, Flamingo, Conchal</p>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">San Jos&eacute;</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Escaz&uacute;, Santa Ana, Rohrmoser</p>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">Manuel Antonio</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Quepos, jungle &amp; beach resorts</p>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">La Fortuna</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Arenal, hot springs, eco-lodges</p>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">Jac&oacute;</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Herradura, Los Sue&ntilde;os</p>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 14px; border: 1px solid rgba(83,100,92,0.1);">
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">Santa Teresa</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Mal Pa&iacute;s, surf towns</p>
+            </div>
+          </div>
+
+          <div
+            style="background-color: var(--color-sage-light); padding: 1.5rem; border-radius: 20px; border: 1px dashed var(--color-sage); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+            <div style="font-size: 2.25rem; color: var(--color-sage);">🇨🇷</div>
+            <div>
+              <h4
+                style="font-family: var(--font-display); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.2rem; font-weight: 700;">
+                We travel to wherever you are in Costa Rica!</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">From private villas to luxury hotel chains.</p>
+            </div>
+          </div>
+
+          <a href="#booking" class="btn btn-secondary">Check Availability in Your Destination</a>
         </div>
       </div>
     </section>
