@@ -31,3 +31,17 @@
 - Navigation: same-page anchor links with `scroll-behavior: smooth`.
 - Docs in `docs/` are in Spanish.
 - `.agents/skills/` contains OpenCode skill definitions — do not delete.
+
+## Pending Tasks
+
+These tasks are blocked pending the user providing a custom domain. Execute all at once when domain is ready.
+
+- [ ] Replace all `https://jblandonm.github.io/TinyHearts/` with `https://[new-domain]/` across:
+  - `index.html` (~14 URLs: OG, Twitter, canonical, JSON-LD)
+  - `privacy-policy.html` (canonical + JSON-LD url)
+  - `terms-of-service.html` (canonical)
+  - `sitemap.xml` (3 `<loc>` entries)
+  - `robots.txt` (Sitemap URL)
+- [ ] Add hreflang tags (`en` + `x-default`) to `<head>` of all 3 HTML pages
+- [ ] Replace `google-site-verification` placeholder with real Search Console code in `index.html`
+- [ ] Update `lastmod` in `sitemap.xml`

@@ -1831,3 +1831,15 @@ textarea.form-control {
 .policy-card-full {
   grid-column: 1 / -1;
 }
+
+/* FAQ Section */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::marker {
+  display: none;
+  content: '';
+}
+.faq-item[open] summary span:last-child {
+  transform: rotate(180deg);
+}
