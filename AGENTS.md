@@ -34,14 +34,14 @@
 
 ## Pending Tasks
 
-These tasks are blocked pending the user providing a custom domain. Execute all at once when domain is ready.
+Domain: `https://tinyhearts0130.com/`
 
-- [ ] Replace all `https://jblandonm.github.io/TinyHearts/` with `https://[new-domain]/` across:
+- [x] Replace all `https://jblandonm.github.io/TinyHearts/` with `https://tinyhearts0130.com/` across:
   - `index.html` (~14 URLs: OG, Twitter, canonical, JSON-LD)
   - `privacy-policy.html` (canonical + JSON-LD url)
   - `terms-of-service.html` (canonical)
   - `sitemap.xml` (3 `<loc>` entries)
   - `robots.txt` (Sitemap URL)
-- [ ] Add hreflang tags (`en` + `x-default`) to `<head>` of all 3 HTML pages
-- [ ] Replace `google-site-verification` placeholder with real Search Console code in `index.html`
-- [ ] Update `lastmod` in `sitemap.xml`
+- [x] Add hreflang tags (`en` + `x-default`) to `<head>` of all 3 HTML pages
+- [ ] Replace `google-site-verification` placeholder with real Search Console code in `index.html` *(usar DNS TXT en Namecheap — no requiere cambio en código)*
+- [x] Update `lastmod` in `sitemap.xml` → `2026-09-01`
