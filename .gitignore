@@ -19,3 +19,8 @@ node_modules/
 # IDE
 .vscode/
 .idea/
+
+# Custom ignored folders
+docs/
+Requisitos/
+email-templates/
