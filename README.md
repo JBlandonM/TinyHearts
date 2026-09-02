@@ -19,6 +19,5 @@ Push to `main` branch → GitHub Actions auto-deploys to `https://tinyhearts0130
 ├── terms-of-service.html   Terms of service
 ├── robots.txt              Crawler rules
 ├── sitemap.xml             XML sitemap
-├── paletas.svg             Color palette reference for client
 └── .gitignore
 ```
