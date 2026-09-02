@@ -45,3 +45,4 @@ Domain: `https://tinyhearts0130.com/`
 - [x] Add hreflang tags (`en` + `x-default`) to `<head>` of all 3 HTML pages
 - [ ] Replace `google-site-verification` placeholder with real Search Console code in `index.html` *(usar DNS TXT en Namecheap — no requiere cambio en código)*
 - [x] Update `lastmod` in `sitemap.xml` → `2026-09-01`
+- [ ] Review and update `robots.txt` to ensure full accessibility for search engines and AI crawlers (LLMs)
