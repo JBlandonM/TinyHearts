@@ -4,8 +4,8 @@ __pycache__/
 *.pyo
 *.egg-info/
 
-# Tests screenshots
-tests/screenshots/
+# Tests
+tests/
 
 # OS
 .DS_Store
