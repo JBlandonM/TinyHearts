@@ -25,7 +25,7 @@ jobs:
         run: |
           cp index.html 404.html privacy-policy.html terms-of-service.html dist/
           cp style.css main.js dist/
-          cp robots.txt sitemap.xml CNAME og-image.jpg dist/
+          cp robots.txt sitemap.xml CNAME og-image.jpg favicon.svg dist/
           cp -r email-templates dist/ 2>/dev/null || true
 
       - name: Install & Minify
