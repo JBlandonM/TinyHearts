@@ -298,7 +298,7 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-size: clamp(2rem, 5vw + 0.4rem, 3.5rem);
   font-weight: 800;
   color: var(--text-dark);
 }
@@ -1836,10 +1836,12 @@ textarea.form-control {
 .faq-item summary::-webkit-details-marker {
   display: none;
 }
+
 .faq-item summary::marker {
   display: none;
   content: '';
 }
+
 .faq-item[open] summary span:last-child {
   transform: rotate(180deg);
 }
