@@ -1,6 +1,6 @@
 # Tiny Hearts 0130 — Landing Page
 
-Mobile childcare services landing page for Tiny Hearts 0130, Costa Rica.
+On site childcare services landing page for Tiny Hearts 0130, Costa Rica.
 
 ## Deploy
 
