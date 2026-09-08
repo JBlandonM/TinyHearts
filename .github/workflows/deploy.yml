@@ -27,6 +27,7 @@ jobs:
           cp style.css main.js dist/
           cp robots.txt sitemap.xml CNAME og-image.jpg favicon.svg dist/
           cp -r email-templates dist/ 2>/dev/null || true
+          cp -r images dist/ 2>/dev/null || true
 
       - name: Install & Minify
         run: |
