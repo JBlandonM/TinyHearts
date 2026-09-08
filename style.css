@@ -795,6 +795,8 @@ p {
   padding-top: clamp(5rem, 10vh, 8rem);
   padding-bottom: var(--space-lg);
   background-color: var(--bg-primary);
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .hero-content {
@@ -859,7 +861,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-illustration {
@@ -888,25 +890,30 @@ p {
 
 .hero-card-floating {
   position: absolute;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow-lg);
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   z-index: 3;
 }
 
 .hero-card-1 {
-  top: 10%;
-  left: 5%;
+  top: 5%;
+  right: -5%;
+  left: auto;
   animation: float-micro 5s infinite alternate ease-in-out;
 }
 
 .hero-card-2 {
-  bottom: 15%;
-  right: 5%;
+  bottom: 10%;
+  left: -5%;
+  right: auto;
   animation: float-micro 7s infinite alternate ease-in-out -2s;
 }
 
@@ -915,11 +922,11 @@ p {
 }
 
 .avatar {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 2px solid white;
-  margin-left: -8px;
+  margin-left: -6px;
   background-color: var(--color-sky);
 }
 
@@ -933,7 +940,7 @@ p {
 }
 
 .hero-card-text h4 {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   margin-bottom: 0.1rem;
 }
 
@@ -942,8 +949,9 @@ p {
 }
 
 .icon-badge {
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
+  font-size: 0.8rem;
   border-radius: 50%;
   background-color: var(--color-sage-light);
   color: var(--color-sage);
@@ -1844,4 +1852,45 @@ textarea.form-control {
 
 .faq-item[open] summary span:last-child {
   transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   HERO CAROUSEL
+   ========================================================================== */
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.hero-carousel .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+}
+
+.hero-carousel .carousel-image.active {
+  opacity: 1;
+  visibility: visible;
+  /* Ken Burns Effect */
+  animation: kenBurns 10s ease-out forwards;
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
 }

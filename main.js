@@ -43,7 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialsSlider();
   initBookingForm();
   initBlobScrollPause();
+  initHeroCarousel();
 });
+
+/**
+ * HERO CAROUSEL
+ * Automatically cycles through images with a Ken Burns effect
+ */
+function initHeroCarousel() {
+  const carousel = document.getElementById('hero-carousel');
+  if (!carousel) return;
+
+  const images = carousel.querySelectorAll('.carousel-image');
+  if (images.length <= 1) return;
+
+  let currentIndex = 0;
+
+  setInterval(() => {
+    // Remove active class from current image
+    images[currentIndex].classList.remove('active');
+    
+    // Move to next image
+    currentIndex = (currentIndex + 1) % images.length;
+    
+    // Add active class to new image
+    images[currentIndex].classList.add('active');
+  }, 6000); // Change image every 6 seconds to allow the Ken Burns effect to play out
+}
 
 /**
  * 1. HEADER SCROLL EFFECTS
