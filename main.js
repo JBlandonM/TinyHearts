@@ -29,16 +29,22 @@ const CONFIG = {
   CR_TIMEZONE_OFFSET: '-06:00',
 };
 
-// Enable smooth scroll strictly after the first user interaction to completely prevent load-time animations
-const enableSmoothScroll = () => {
-  document.documentElement.classList.add('smooth-scroll');
-  window.removeEventListener('pointerdown', enableSmoothScroll);
-  window.removeEventListener('wheel', enableSmoothScroll);
-  window.removeEventListener('keydown', enableSmoothScroll);
-};
-window.addEventListener('pointerdown', enableSmoothScroll);
-window.addEventListener('wheel', enableSmoothScroll);
-window.addEventListener('keydown', enableSmoothScroll);
+// Prevent native scroll restoration creep bugs by handling it manually
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('th_saved_scroll', window.scrollY);
+});
+
+// Restore scroll position instantly after everything is fully loaded and settled
+window.addEventListener('load', () => {
+  const savedScroll = sessionStorage.getItem('th_saved_scroll');
+  if (savedScroll) {
+    window.scrollTo(0, parseFloat(savedScroll));
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
