@@ -792,7 +792,7 @@ p {
    ========================================================================== */
 .hero {
   position: relative;
-  padding-top: clamp(5rem, 10vh, 8rem);
+  padding-top: clamp(6.5rem, 10.7vh, 9rem);
   padding-bottom: var(--space-lg);
   background-color: var(--bg-primary);
   padding-left: 12px;
