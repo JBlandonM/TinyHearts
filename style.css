@@ -138,9 +138,11 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
+
 html {
   scroll-padding-top: 60px;
   -webkit-text-size-adjust: 100%;
@@ -321,6 +323,7 @@ p {
 .text-gradient {
   background: linear-gradient(135deg, var(--color-coral) 0%, var(--color-amber) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
