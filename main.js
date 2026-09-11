@@ -29,14 +29,18 @@ const CONFIG = {
   CR_TIMEZONE_OFFSET: '-06:00',
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Prevent smooth scroll animation during browser's initial scroll restoration + hash-navigation
-  document.documentElement.style.scrollBehavior = 'auto';
-  // Restore smooth only after ALL initial scrolling (hash nav, scroll restoration) is done
-  window.addEventListener('load', () => {
-    document.documentElement.style.scrollBehavior = '';
-  }, { once: true });
+// Enable smooth scroll strictly after the first user interaction to completely prevent load-time animations
+const enableSmoothScroll = () => {
+  document.documentElement.classList.add('smooth-scroll');
+  window.removeEventListener('pointerdown', enableSmoothScroll);
+  window.removeEventListener('wheel', enableSmoothScroll);
+  window.removeEventListener('keydown', enableSmoothScroll);
+};
+window.addEventListener('pointerdown', enableSmoothScroll);
+window.addEventListener('wheel', enableSmoothScroll);
+window.addEventListener('keydown', enableSmoothScroll);
 
+document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
   initScrollReveal();
@@ -62,10 +66,10 @@ function initHeroCarousel() {
   setInterval(() => {
     // Remove active class from current image
     images[currentIndex].classList.remove('active');
-    
+
     // Move to next image
     currentIndex = (currentIndex + 1) % images.length;
-    
+
     // Add active class to new image
     images[currentIndex].classList.add('active');
   }, 6000); // Change image every 6 seconds to allow the Ken Burns effect to play out
